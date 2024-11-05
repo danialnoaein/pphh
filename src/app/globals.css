@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "yekanBakh", Arial, Helvetica, sans-serif;
+}
+
+.text-section {
+  background-image: url("/images/text-section-bg.png");
+}
+
+.cards-section-bg-right {
+  background-image: url("/images/cards-section-right-bg.png");
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+.cards-section-bg-left {
+  background-image: url("/images/cards-section-left-bg.png");
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+
+.cards-pocket-bg {
+  background-image: url("/images/cards-pocket-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.intro-section-image-right {
+  background-image: url("/images/intro-section-image-bg-right.png");
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.intro-section-image-left {
+  background-image: url("/images/intro-section-image-bg-left.png");
+  background-repeat: no-repeat;
+  background-position: left;
+}
+.bg-pattern {
+  background-image: url("/images/bg-pattern.png");
+  background-blend-mode: lighten;
+}
