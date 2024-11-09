@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { IconPencil } from "@tabler/icons-react";
 
-const IntroSection = ({ reverseOrder }: any) => {
+const IntroSection = ({ reverseOrder }: { reverseOrder: boolean }) => {
   return (
     <div
       className={`border container relative mx-auto my-4 bg-[#FAFBFF]  ${

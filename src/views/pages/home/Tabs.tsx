@@ -1,4 +1,4 @@
-import { IconCaretUp, IconInfoCircle, IconPencil } from "@tabler/icons-react";
+import { IconCaretUp, IconInfoCircle } from "@tabler/icons-react";
 import Image from "next/image";
 import { useState } from "react";
 
