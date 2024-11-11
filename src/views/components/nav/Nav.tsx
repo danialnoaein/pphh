@@ -15,10 +15,10 @@ const Nav = () => {
       <div className='container'>
         <nav className='bg-primary-500 rounded-[3rem] p-4 shadow-lg flex justify-between items-center bg-pattern relative z-[1]'>
           <div className='container mx-auto flex justify-between items-center'>
-            <div className='text-white block md:hidden pl-4'>
+            <div className='text-white block md:hidden pl-2'>
               <IconMenu2 />
             </div>
-            <a className='text-white font-bold text-lg sm:flex-1 md:flex-none'>
+            <a className='text-white font-bold text-lg flex-1 md:flex-none'>
               <Image
                 src={"/images/nav-logo.png"}
                 width={90}

@@ -8,7 +8,7 @@ const Cards = () => {
         <div className='flex-1 cards-section-bg-left h-[512px]'></div>
       </div>
       <div className='container mx-auto justify-center flex mt-[-10rem]'>
-        <div className='w-[512px] text-center justify-center items-center flex flex-col relative'>
+        <div className='w-[380px] md:w-[512px] text-center justify-center items-center flex flex-col relative'>
           <div className='absolute'>
             <Image
               className=''
@@ -20,7 +20,7 @@ const Cards = () => {
           </div>
 
           <div className='absolute'>
-            <div className='transition-all absolute w-[460px] h-[400px] right-[-228px] top-[-310px] hover:top-[-330px] group'>
+            <div className='transition-all absolute w-[380px] md:w-[460px] h-[400px] right-[-188px] md:right-[-228px] top-[-310px] hover:top-[-330px] group'>
               <Image
                 src={"/images/pocket-card-bg.png"}
                 alt={"section"}
@@ -34,7 +34,7 @@ const Cards = () => {
               </div>
             </div>
 
-            <div className='transition-all absolute w-[460px] h-[400px] right-[-228px] top-[-260px]  hover:top-[-280px] group'>
+            <div className='transition-all absolute w-[380px] md:w-[460px] h-[400px] right-[-188px] md:right-[-228px] top-[-260px]  hover:top-[-280px] group'>
               <Image
                 src={"/images/pocket-card-bg.png"}
                 alt={"section"}
@@ -48,7 +48,7 @@ const Cards = () => {
               </div>
             </div>
 
-            <div className='transition-all absolute w-[460px] h-[400px] right-[-228px] top-[-210px]  hover:top-[-230px] group'>
+            <div className='transition-all absolute w-[380px] md:w-[460px] h-[400px] right-[-188px] md:right-[-228px] top-[-210px]  hover:top-[-230px] group'>
               <Image
                 src={"/images/pocket-card-bg.png"}
                 alt={"section"}
@@ -62,7 +62,7 @@ const Cards = () => {
               </div>
             </div>
 
-            <div className='transition-all absolute w-[460px] h-[400px] right-[-228px] top-[-160px]  hover:top-[-180px] group'>
+            <div className='transition-all absolute w-[380px] md:w-[460px] h-[400px] right-[-188px] md:right-[-228px] top-[-160px]  hover:top-[-180px] group'>
               <Image
                 src={"/images/pocket-card-bg.png"}
                 alt={"section"}
@@ -77,9 +77,8 @@ const Cards = () => {
             </div>
           </div>
 
-          <div className='absolute bottom-[-166px]'>
+          <div className='absolute bottom-[-126px] md:bottom-[-166px]'>
             <Image
-              className=''
               src={"/images/cards-pocket.png"}
               alt={"section"}
               width={520}

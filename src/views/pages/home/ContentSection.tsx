@@ -3,7 +3,7 @@ import Image from "next/image";
 const ContentSection = () => {
   return (
     <div className='container mx-auto'>
-      <div className='flex gap-4 first:rounded-0 first:rounded-l-lg last:rounded-r-lg '>
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-4 first:rounded-0 first:rounded-l-lg last:rounded-r-lg '>
         <div className='rounded-2xl bg-white border-2 text-center over overflow-hidden	'>
           <div className='p-8'>
             <div className='text-sm shadow w-20 rounded-full mx-auto'>

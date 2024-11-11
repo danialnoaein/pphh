@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const BenefitsSection = () => {
   return (
-    <div className='container mx-auto flex gap-8 px-8'>
-      <div className='flex-1 bg-white'>
+    <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-8'>
+      <div className='bg-white'>
         <div className='rounded-t-[4rem] rounded-xl bg-white shadow-xl over overflow-hidden	'>
           <Image
             src={"/images/content-poster.jpg"}
@@ -28,7 +28,7 @@ const BenefitsSection = () => {
         </div>
       </div>
 
-      <div className='flex-1 bg-white'>
+      <div className='bg-white'>
         <div className='rounded-t-[4rem] rounded-xl bg-white shadow-xl over overflow-hidden	'>
           <Image
             src={"/images/content-poster.jpg"}
