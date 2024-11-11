@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-
+/** @type {import('tailwindcss').Config} */
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,13 +9,16 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      tablet: "640px",
+      sm: "640px",
       // => @media (min-width: 640px) { ... }
 
-      laptop: "896px",
+      md: "768px",
+      // => @media (min-width: 768px) { ... }
+
+      lg: "896px",
       // => @media (min-width: 1024px) { ... }
 
-      desktop: "1120px",
+      xl: "1120px",
       // => @media (min-width: 1280px) { ... }
     },
 

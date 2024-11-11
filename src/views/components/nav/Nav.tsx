@@ -5,18 +5,20 @@ import {
   IconCaretUp,
   IconChevronLeft,
   IconInbox,
-  IconMenu,
+  IconMenu2,
 } from "@tabler/icons-react";
 import Image from "next/image";
 
 const Nav = () => {
   return (
     <div className='fixed top-0 w-full flex flex-col items-center justify-center z-50 mt-8'>
-      <div className='container '>
+      <div className='container'>
         <nav className='bg-primary-500 rounded-[3rem] p-4 shadow-lg flex justify-between items-center bg-pattern relative z-[1]'>
           <div className='container mx-auto flex justify-between items-center'>
-            <IconMenu className='text-white hidden' />
-            <a className='text-white font-bold text-lg mr-4'>
+            <div className='text-white block md:hidden pl-4'>
+              <IconMenu2 />
+            </div>
+            <a className='text-white font-bold text-lg sm:flex-1 md:flex-none'>
               <Image
                 src={"/images/nav-logo.png"}
                 width={90}
@@ -24,7 +26,7 @@ const Nav = () => {
                 alt='Nav Logo'
               />
             </a>
-            <div className='flex-1 '>
+            <div className='flex-1 hidden md:block'>
               <ul className='flex items-center align-center justify-center gap-8'>
                 <li>
                   <a
@@ -43,7 +45,7 @@ const Nav = () => {
                     معاملات
                   </a>
                 </li>
-                <li className='group py-4'>
+                <li className='group py-2'>
                   <a
                     href='#'
                     className='text-white hover:text-blue-200 flex align-center justify-center'
