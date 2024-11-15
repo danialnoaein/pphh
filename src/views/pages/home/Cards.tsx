@@ -9,7 +9,7 @@ const Cards = () => {
         <div className='flex-1 cards-section-bg-left h-[360px] md:h-[512px]'></div>
       </div>
       <div className='container mx-auto justify-center flex mt-[-7rem] md:mt-[-10rem]'>
-        <div className='w-[360px] md:w-[512px] text-center justify-center items-center flex flex-col relative'>
+        <div className='w-[320px] md:w-[512px] text-center justify-center items-center flex flex-col relative'>
           <div className='absolute'>
             <Image
               className=''
@@ -21,14 +21,14 @@ const Cards = () => {
           </div>
 
           <div className='absolute'>
-            <div className='transition-all absolute w-[350px] md:w-[460px] h-[400px] right-[-174px] md:right-[-228px] top-[-240px] md:top-[-310px] hover:top-[-260px] hover:md:top-[-330px] group'>
+            <div className='transition-all absolute w-[310px] md:w-[460px] h-[400px] right-[-154px] md:right-[-228px] top-[-220px] md:top-[-310px] hover:top-[-240px] hover:md:top-[-330px] group'>
               <Image
                 src={"/images/pocket-card-bg.png"}
                 alt={"section"}
                 width={460}
                 height={400}
               />
-              <div className=' transition-all text-left text-white ml-8 mt-[-150px] md:mt-[-200px] hidden group-hover:block'>
+              <div className=' transition-all text-left text-white ml-4 md:ml-8 mt-[-132px] md:mt-[-200px] hidden group-hover:block'>
                 <Link
                   href={"#"}
                   className='border rounded px-2 text-sm pt-1'
@@ -38,14 +38,14 @@ const Cards = () => {
               </div>
             </div>
 
-            <div className='transition-all absolute w-[350px] md:w-[460px] h-[400px] right-[-174px] md:right-[-228px] top-[-200px] md:top-[-260px] hover:top-[-220px] hover:md:top-[-280px] group'>
+            <div className='transition-all absolute w-[310px] md:w-[460px] h-[400px] right-[-154px] md:right-[-228px] top-[-180px] md:top-[-260px] hover:top-[-200px] hover:md:top-[-280px] group'>
               <Image
                 src={"/images/pocket-card-bg.png"}
                 alt={"section"}
                 width={460}
                 height={400}
               />
-              <div className=' transition-all text-left text-white ml-8 mt-[-150px] md:mt-[-200px] hidden group-hover:block'>
+              <div className=' transition-all text-left text-white ml-4 md:ml-8 mt-[-132px] md:mt-[-200px] hidden group-hover:block'>
                 <Link
                   href={"#"}
                   className='border rounded px-2 text-sm pt-1'
@@ -55,14 +55,14 @@ const Cards = () => {
               </div>
             </div>
 
-            <div className='transition-all absolute w-[350px] md:w-[460px] h-[400px] right-[-174px] md:right-[-228px] top-[-160px] md:top-[-210px]  hover:top-[-180px] hover:md:top-[-230px] group'>
+            <div className='transition-all absolute w-[310px] md:w-[460px] h-[400px] right-[-154px] md:right-[-228px] top-[-140px] md:top-[-210px]  hover:top-[-160px] hover:md:top-[-230px] group'>
               <Image
                 src={"/images/pocket-card-bg.png"}
                 alt={"section"}
                 width={460}
                 height={400}
               />
-              <div className=' transition-all text-left text-white ml-8 mt-[-150px] md:mt-[-200px] hidden group-hover:block'>
+              <div className=' transition-all text-left text-white ml-4 md:ml-8 mt-[-132px] md:mt-[-200px] hidden group-hover:block'>
                 <Link
                   href={"#"}
                   className='border rounded px-2 text-sm pt-1'
@@ -72,14 +72,14 @@ const Cards = () => {
               </div>
             </div>
 
-            <div className='transition-all absolute w-[350px] md:w-[460px] h-[400px] right-[-174px] md:right-[-228px] top-[-120px] md:top-[-160px] hover:top-[-140px] hover:md:top-[-180px] group'>
+            <div className='transition-all absolute w-[310px] md:w-[460px] h-[400px] right-[-154px] md:right-[-228px] top-[-100px] md:top-[-160px] hover:top-[-120px] hover:md:top-[-180px] group'>
               <Image
                 src={"/images/pocket-card-bg.png"}
                 alt={"section"}
                 width={460}
                 height={300}
               />
-              <div className=' transition-all text-left text-white ml-8 mt-[-150px] md:mt-[-200px] hidden group-hover:block'>
+              <div className=' transition-all text-left text-white ml-4 md:ml-8 mt-[-132px] md:mt-[-200px] hidden group-hover:block'>
                 <Link
                   href={"#"}
                   className='border rounded px-2 text-sm pt-1'
