@@ -43,13 +43,13 @@ body {
 }
 
 .intro-section-image-right {
-  background-image: url("/images/intro-section-image-bg-right.png");
+  /* background-image: url("/images/intro-section-image-bg-right.png"); */
   background-repeat: no-repeat;
   background-position: right;
 }
 
 .intro-section-image-left {
-  background-image: url("/images/intro-section-image-bg-left.png");
+  /* background-image: url("/images/intro-section-image-bg-left.png"); */
   background-repeat: no-repeat;
   background-position: left;
 }

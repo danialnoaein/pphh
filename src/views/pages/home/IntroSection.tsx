@@ -4,16 +4,19 @@ import { IconPencil } from "@tabler/icons-react";
 const IntroSection = ({ reverseOrder }: { reverseOrder: boolean }) => {
   return (
     <div
-      className={`border container relative mx-auto my-4 bg-[#FAFBFF]  ${
-        reverseOrder ? "intro-section-image-left" : "intro-section-image-right"
+      className={`border container relative mx-auto my-4 bg-[#FAFBFF] bg-none  ${
+        reverseOrder
+          ? "intro-section-image-left md:bg-[url('/images/intro-section-image-bg-left.png')]"
+          : "intro-section-image-right md:bg-[url('/images/intro-section-image-bg-right.png')]"
       }`}
     >
-      <div
-        className={`flex items-center ${
-          reverseOrder ? "flex-row-reverse" : ""
-        }`}
-      >
-        <div className='flex-[3_3_0%] flex items-center justify-center'>
+      <div className={`grid grid-cols-5 items-center`}>
+        <div
+          className={`md:col-span-3 col-span-5 flex items-center justify-center  ${
+            reverseOrder ? "md:order-last" : ""
+          }
+        `}
+        >
           <div>
             <Image
               src={"/images/section-1-sabad-gardan.png"}
@@ -23,7 +26,7 @@ const IntroSection = ({ reverseOrder }: { reverseOrder: boolean }) => {
             />
           </div>
         </div>
-        <div className='flex-[2_2_0%] mx-8 pb-16'>
+        <div className='md:col-span-2 col-span-5 mx-8 pb-16'>
           <div className='text-sm shadow w-20 rounded-full text-center mt-12 mb-6'>
             تحلیل
           </div>
@@ -37,7 +40,7 @@ const IntroSection = ({ reverseOrder }: { reverseOrder: boolean }) => {
             انرژی و ابزار مشتقه، د
           </div>
           <div className='grid grid-cols-2 gap-4 mt-8'>
-            <div>
+            <div className='col-span-2 md:col-span-1'>
               <div>
                 <IconPencil />
               </div>
@@ -47,7 +50,7 @@ const IntroSection = ({ reverseOrder }: { reverseOrder: boolean }) => {
                 استفاده از طراحان گرافیک است،
               </div>
             </div>
-            <div>
+            <div className='col-span-2 md:col-span-1'>
               <div>
                 <IconPencil />
               </div>
@@ -57,7 +60,7 @@ const IntroSection = ({ reverseOrder }: { reverseOrder: boolean }) => {
                 استفاده از طراحان گرافیک است،
               </div>
             </div>
-            <div>
+            <div className='col-span-2 md:col-span-1'>
               <div>
                 <IconPencil />
               </div>
@@ -67,7 +70,7 @@ const IntroSection = ({ reverseOrder }: { reverseOrder: boolean }) => {
                 استفاده از طراحان گرافیک است،
               </div>
             </div>
-            <div>
+            <div className='col-span-2 md:col-span-1'>
               <div>
                 <IconPencil />
               </div>

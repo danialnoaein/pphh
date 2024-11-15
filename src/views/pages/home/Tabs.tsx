@@ -1,21 +1,21 @@
-import { IconCaretUp, IconInfoCircle } from "@tabler/icons-react";
+import FundPricingStatusCard from "@/views/components/FundPricingStatusCard/FundPricingStatusCard";
 import Image from "next/image";
 import { useState } from "react";
 
 const tabsData = [
   {
-    title: "صندوق بهگزین",
+    title: "بهگزین",
     content:
       "Ut irure mollit nulla eiusmod excepteur laboris elit sit anim magna tempor excepteur labore nulla.",
   },
   {
-    title: "صندوق پتروپاداش",
+    title: "پتروپاداش",
     content:
       "Fugiat dolor et quis in incididunt aute. Ullamco voluptate consectetur dolor officia sunt est dolor sint.",
   },
 
   {
-    title: "صندوق پاداش",
+    title: "پاداش",
     content:
       "Fugiat dolor et quis in incididunt aute. Ullamco voluptate consectetur dolor officia sunt est dolor sint.",
   },
@@ -27,7 +27,7 @@ const Tabs = () => {
   const content = (activeTabIndex: number) => {
     return (
       <div className={`relative mx-auto bg-[#FAFBFF] overflow-hidden`}>
-        <div className={`flex items-center`}>
+        <div className={`grid grid-cols-1 md:grid-cols-2 items-center`}>
           <div className='flex-1 relative'>
             <div className='relative z-[1] flex  justify-center items-center flex-col text-white'>
               <Image
@@ -75,65 +75,10 @@ const Tabs = () => {
               کالا، انرژی و ابزار مشتقه، د
             </div>
             <div className='grid grid-cols-2 gap-4 mt-8'>
-              <div className='border-2 rounded-xl p-4 border-dashed text-center flex flex-col gap-1 '>
-                <div className='flex justify-center gap-1'>
-                  قیمت پایانی
-                  <IconInfoCircle className='text-gray-400' />
-                </div>
-                <div className='flex gap-1 justify-center items-center'>
-                  <span className='text-red-500'></span>
-                  <span className='text-green-500 flex text-xl'>
-                    <IconCaretUp /> (2.37%)
-                  </span>
-                  <span className='font-bold text-xl'>43,991</span>
-                  <span className='text-xs'>ریال</span>
-                </div>
-              </div>
-
-              <div className='border-2 rounded-xl p-4 border-dashed text-center flex flex-col gap-1 '>
-                <div className='flex justify-center gap-1'>
-                  قیمت پایانی
-                  <IconInfoCircle className='text-gray-400' />
-                </div>
-                <div className='flex gap-1 justify-center items-center'>
-                  <span className='text-red-500'></span>
-                  <span className='text-green-500 flex text-xl'>
-                    <IconCaretUp /> (2.37%)
-                  </span>
-                  <span className='font-bold text-xl'>43,991</span>
-                  <span className='text-xs'>ریال</span>
-                </div>
-              </div>
-
-              <div className='border-2 rounded-xl p-4 border-dashed text-center flex flex-col gap-1 '>
-                <div className='flex justify-center gap-1'>
-                  قیمت پایانی
-                  <IconInfoCircle className='text-gray-400' />
-                </div>
-                <div className='flex gap-1 justify-center items-center'>
-                  <span className='text-red-500'></span>
-                  <span className='text-green-500 flex text-xl'>
-                    <IconCaretUp /> (2.37%)
-                  </span>
-                  <span className='font-bold text-xl'>43,991</span>
-                  <span className='text-xs'>ریال</span>
-                </div>
-              </div>
-
-              <div className='border-2 rounded-xl p-4 border-dashed text-center flex flex-col gap-1 '>
-                <div className='flex justify-center gap-1'>
-                  قیمت پایانی
-                  <IconInfoCircle className='text-gray-400' />
-                </div>
-                <div className='flex gap-1 justify-center items-center'>
-                  <span className='text-red-500'></span>
-                  <span className='text-green-500 flex text-xl'>
-                    <IconCaretUp /> (2.37%)
-                  </span>
-                  <span className='font-bold text-xl'>43,991</span>
-                  <span className='text-xs'>ریال</span>
-                </div>
-              </div>
+              <FundPricingStatusCard />
+              <FundPricingStatusCard />
+              <FundPricingStatusCard />
+              <FundPricingStatusCard />
             </div>
           </div>
         </div>
@@ -148,10 +93,11 @@ const Tabs = () => {
           return (
             <button
               key={idx}
-              className={`border border-b-0 rounded-t-full py-1 px-6 bg-[#F6F9FC]`}
+              className={`border flex-1 md:flex-none border-b-0 rounded-t-full py-1 px-6 bg-[#F6F9FC]`}
               // Change the active tab on click.
               onClick={() => setActiveTabIndex(idx)}
             >
+              <span className='hidden md:inline-block ml-1'>صندوق </span>
               {tab.title}
             </button>
           );
