@@ -55,9 +55,7 @@ const Cards = () => {
                 height={400}
               />
               <div
-                className={`${
-                  activeCard === index ? "block" : "hidden"
-                }  transition-all text-left text-white ml-4 md:ml-8 mt-[-132px] md:mt-[-200px] hidden group-hover:block `}
+                className={`transition-all text-left text-white ml-4 md:ml-8 mt-[-132px] md:mt-[-200px] hidden group-hover:block `}
               >
                 <Link
                   href={"#"}
