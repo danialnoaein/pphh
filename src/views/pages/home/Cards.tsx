@@ -1,37 +1,18 @@
-'use client';
-
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 const Cards = () => {
-  const [activeCard, setActiveCard] = useState(0);
-
-  useEffect(() => {
-    const cardsCount = 4; // Number of cards
-    const interval = setInterval(() => {
-      setActiveCard((prev) => {
-        let newCard;
-        do {
-          newCard = Math.floor(Math.random() * cardsCount); // Randomly pick a card
-        } while (newCard === prev); // Ensure a new card is chosen
-        return newCard;
-      });
-    }, 3000); // Switch every 3 seconds
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div className="relative min-h-[24rem] md:min-h-[30rem]">
-      <div className="flex">
-        <div className="flex-1 cards-section-bg-right h-[360px] md:h-[512px]"></div>
-        <div className="flex-1 cards-section-bg-left h-[360px] md:h-[512px]"></div>
+    <div className='relative min-h-[24rem] md:min-h-[30rem]'>
+      <div className='flex'>
+        <div className='flex-1 cards-section-bg-right h-[360px] md:h-[512px]'></div>
+        <div className='flex-1 cards-section-bg-left h-[360px] md:h-[512px]'></div>
       </div>
-      <div className="container mx-auto justify-center flex mt-[-7rem] md:mt-[-10rem]">
-        <div className="w-[320px] md:w-[512px] text-center justify-center items-center flex flex-col relative">
-          <div className="absolute">
+      <div className='container mx-auto justify-center flex mt-[-7rem] md:mt-[-10rem]'>
+        <div className='w-[320px] md:w-[512px] text-center justify-center items-center flex flex-col relative'>
+          <div className='absolute'>
             <Image
+              className=''
               src={"/images/cards-pocket-bg.png"}
               alt={"section"}
               width={470}
@@ -39,33 +20,77 @@ const Cards = () => {
             />
           </div>
 
-          {[0, 1, 2, 3].map((index) => (
-            <div
-              key={index}
-              className={`transition-all absolute w-[310px] md:w-[460px] h-[400px] right-[-154px] md:right-[-228px] 
-                top-[-${100+(index*40)}px] md:top-[-${160+(index*50)}px] 
-                hover:top-[-${120+(index*40)}px] hover:md:top-[-${180+(index*50)}px] 
-                group ${
-                  activeCard === index
-                    ? "animate-move"
-                    : ""
-                }`}
-            >
+          <div className='absolute'>
+            <div className='transition-all absolute w-[310px] md:w-[460px] h-[400px] right-[-154px] md:right-[-228px] top-[-220px] md:top-[-310px] hover:top-[-240px] hover:md:top-[-330px] group'>
               <Image
                 src={"/images/pocket-card-bg.png"}
-                alt={`section ${index + 1}`}
+                alt={"section"}
                 width={460}
                 height={400}
               />
-              <div className="transition-all text-left text-white ml-4 md:ml-8 mt-[-132px] md:mt-[-200px] hidden group-hover:block">
-                <Link href={"#"} className="border rounded px-2 text-sm pt-1">
-                  اطلاعات بیشتر {index + 1}
+              <div className=' transition-all text-left text-white ml-4 md:ml-8 mt-[-132px] md:mt-[-200px] hidden group-hover:block'>
+                <Link
+                  href={"#"}
+                  className='border rounded px-2 text-sm pt-1'
+                >
+                  اطلاعات بیشتر 1
                 </Link>
               </div>
             </div>
-          ))}
 
-          <div className="absolute bottom-[-112px] md:bottom-[-164px] m-[-16px] md:m-0">
+            <div className='transition-all absolute w-[310px] md:w-[460px] h-[400px] right-[-154px] md:right-[-228px] top-[-180px] md:top-[-260px] hover:top-[-200px] hover:md:top-[-280px] group'>
+              <Image
+                src={"/images/pocket-card-bg.png"}
+                alt={"section"}
+                width={460}
+                height={400}
+              />
+              <div className=' transition-all text-left text-white ml-4 md:ml-8 mt-[-132px] md:mt-[-200px] hidden group-hover:block'>
+                <Link
+                  href={"#"}
+                  className='border rounded px-2 text-sm pt-1'
+                >
+                  اطلاعات بیشتر 2
+                </Link>
+              </div>
+            </div>
+
+            <div className='transition-all absolute w-[310px] md:w-[460px] h-[400px] right-[-154px] md:right-[-228px] top-[-140px] md:top-[-210px]  hover:top-[-160px] hover:md:top-[-230px] group'>
+              <Image
+                src={"/images/pocket-card-bg.png"}
+                alt={"section"}
+                width={460}
+                height={400}
+              />
+              <div className=' transition-all text-left text-white ml-4 md:ml-8 mt-[-132px] md:mt-[-200px] hidden group-hover:block'>
+                <Link
+                  href={"#"}
+                  className='border rounded px-2 text-sm pt-1'
+                >
+                  اطلاعات بیشتر 3
+                </Link>
+              </div>
+            </div>
+
+            <div className='transition-all absolute w-[310px] md:w-[460px] h-[400px] right-[-154px] md:right-[-228px] top-[-100px] md:top-[-160px] hover:top-[-120px] hover:md:top-[-180px] group'>
+              <Image
+                src={"/images/pocket-card-bg.png"}
+                alt={"section"}
+                width={460}
+                height={300}
+              />
+              <div className=' transition-all text-left text-white ml-4 md:ml-8 mt-[-132px] md:mt-[-200px] hidden group-hover:block'>
+                <Link
+                  href={"#"}
+                  className='border rounded px-2 text-sm pt-1'
+                >
+                  اطلاعات بیشتر 4
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className='absolute bottom-[-112px] md:bottom-[-164px] m-[-16px] md:m-0'>
             <Image
               src={"/images/cards-pocket.png"}
               alt={"section"}
