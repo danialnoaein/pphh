@@ -67,7 +67,7 @@ body {
 }
 
 .animate-move {
-  animation: move-up-down 1.5s infinite ease-in-out;
+  animation: move-up-down 1.5s ease-in-out;
 }
 
 .group-hover .animate-move {
