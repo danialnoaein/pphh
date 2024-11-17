@@ -37,24 +37,24 @@ const Cards = () => {
             />
           </div>
 
-          {[3, 2, 1, 0].map((index) => (
+          {[3, 2, 1, 0].map((item, index) => (
             <div
-              key={index}
-              className={`top-[-${100 + index * 40}px] md:top-[-${(
+              key={item}
+              className={`top-[-${100 + item * 40}px] md:top-[-${(
                 160 +
-                index * 50
+                item * 50
               ).toString()}px] hover:top-[-${
-                120 + index * 40
+                120 + item * 40
               }px] hover:md:top-[-${(
                 180 +
-                index * 50
+                item * 50
               ).toString()}px] transition-all absolute w-[310px] md:w-[460px] h-[400px] right-[4px] md:right-[28px] group ${
-                activeCard === index ? "animate-move" : ""
+                activeCard === item ? "animate-move" : ""
               }`}
             >
               <Image
                 src={"/images/pocket-card-bg.png"}
-                alt={`section ${index + 1}`}
+                alt={`section ${item + 1}`}
                 width={460}
                 height={400}
               />
@@ -63,7 +63,7 @@ const Cards = () => {
               >
                 <Link
                   href={"#"}
-                  className='border rounded px-2 text-sm pt-1'
+                  className={`border rounded px-2 text-sm pt-1 ${index}`}
                 >
                   اطلاعات بیشتر
                 </Link>
