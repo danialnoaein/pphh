@@ -6,11 +6,20 @@ import Link from "next/link";
 
 const Cards = () => {
   const [activeCard, setActiveCard] = useState<number>(0);
+  const [cardPositions, setCardPositions] = useState<number[]>([]);
 
   useEffect(() => {
+    // Calculate unique positions for each card on the client side
+    setCardPositions([
+      -220, // Card 1 initial top position
+      -180, // Card 2 initial top position
+      -140, // Card 3 initial top position
+      -100, // Card 4 initial top position
+    ]);
+
     const cardsCount = 4; // Number of cards
     const interval = setInterval(() => {
-      setActiveCard((prev: number) => {
+      setActiveCard((prev) => {
         let newCard;
         do {
           newCard = Math.floor(Math.random() * cardsCount); // Randomly pick a card
@@ -21,7 +30,6 @@ const Cards = () => {
 
     return () => clearInterval(interval);
   }, []);
-
   return (
     <div className='relative min-h-[24rem] md:min-h-[30rem]'>
       <div className='flex'>
@@ -39,35 +47,28 @@ const Cards = () => {
             />
           </div>
 
-          {[3, 2, 1, 0].map((item, index) => (
+          {cardPositions.map((top, index) => (
             <div
-              key={item}
-              className={`top-[-${100 + item * 40}px] md:top-[-${(
-                160 +
-                item * 50
-              ).toString()}px] hover:top-[-${
-                120 + item * 40
-              }px] hover:md:top-[-${(
-                180 +
-                item * 50
-              ).toString()}px] transition-all absolute w-[310px] md:w-[460px] h-[400px] right-[4px] md:right-[28px] group ${
-                activeCard === item ? "animate-move" : ""
-              }`}
+              key={index}
+              style={{
+                top: `${top}px`,
+              }}
+              className={`transition-all absolute w-[310px] md:w-[460px] h-[400px] right-[-154px] md:right-[-228px] 
+              hover:top-[${top - 20}px] hover:md:top-[${top - 20}px] 
+              group ${activeCard === index ? "animate-move" : ""}`}
             >
               <Image
                 src={"/images/pocket-card-bg.png"}
-                alt={`section ${item + 1}`}
+                alt={`section ${index + 1}`}
                 width={460}
                 height={400}
               />
-              <div
-                className={`transition-all text-left text-white ml-4 md:ml-8 mt-[-132px] md:mt-[-200px] hidden group-hover:block `}
-              >
+              <div className='transition-all text-left text-white ml-4 md:ml-8 mt-[-132px] md:mt-[-200px] hidden group-hover:block'>
                 <Link
                   href={"#"}
-                  className={`border rounded px-2 text-sm pt-1 ${index}`}
+                  className='border rounded px-2 text-sm pt-1'
                 >
-                  اطلاعات بیشتر
+                  اطلاعات بیشتر {index + 1}
                 </Link>
               </div>
             </div>
