@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Cards = () => {
-  const [activeCard, setActiveCard] = useState(null);
+  const [activeCard, setActiveCard] = useState(0);
 
   useEffect(() => {
     const cardsCount = 4; // Number of cards
