@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -37,63 +39,39 @@ const Cards = () => {
             />
           </div>
 
-          <div
-            className={`top-[-${100 + 1 * 40}px] md:top-[-${(
-              160 +
-              1 * 50
-            ).toString()}px] hover:top-[-${120 + 1 * 40}px] hover:md:top-[-${(
-              180 +
-              1 * 50
-            ).toString()}px] transition-all absolute w-[310px] md:w-[460px] h-[400px] right-[4px] md:right-[28px] group ${
-              activeCard === 1 ? "animate-move" : ""
-            }`}
-          >
-            <Image
-              src={"/images/pocket-card-bg.png"}
-              alt={`section ${1 + 1}`}
-              width={460}
-              height={400}
-            />
+          {[3, 2, 1, 0].map((item, index) => (
             <div
-              className={`transition-all text-left text-white ml-4 md:ml-8 mt-[-132px] md:mt-[-200px] hidden group-hover:block `}
+              key={item}
+              className={`top-[-${100 + item * 40}px] md:top-[-${(
+                160 +
+                item * 50
+              ).toString()}px] hover:top-[-${
+                120 + item * 40
+              }px] hover:md:top-[-${(
+                180 +
+                item * 50
+              ).toString()}px] transition-all absolute w-[310px] md:w-[460px] h-[400px] right-[4px] md:right-[28px] group ${
+                activeCard === item ? "animate-move" : ""
+              }`}
             >
-              <Link
-                href={"#"}
-                className={`border rounded px-2 text-sm pt-1`}
+              <Image
+                src={"/images/pocket-card-bg.png"}
+                alt={`section ${item + 1}`}
+                width={460}
+                height={400}
+              />
+              <div
+                className={`transition-all text-left text-white ml-4 md:ml-8 mt-[-132px] md:mt-[-200px] hidden group-hover:block `}
               >
-                اطلاعات بیشتر
-              </Link>
+                <Link
+                  href={"#"}
+                  className={`border rounded px-2 text-sm pt-1 ${index}`}
+                >
+                  اطلاعات بیشتر
+                </Link>
+              </div>
             </div>
-          </div>
-
-          <div
-            className={`top-[-${100 + 0 * 40}px] md:top-[-${(
-              160 +
-              0 * 50
-            ).toString()}px] hover:top-[-${120 + 0 * 40}px] hover:md:top-[-${(
-              180 +
-              0 * 50
-            ).toString()}px] transition-all absolute w-[310px] md:w-[460px] h-[400px] right-[4px] md:right-[28px] group ${
-              activeCard === 0 ? "animate-move" : ""
-            }`}
-          >
-            <Image
-              src={"/images/pocket-card-bg.png"}
-              alt={`section ${0 + 1}`}
-              width={460}
-              height={400}
-            />
-            <div
-              className={`transition-all text-left text-white ml-4 md:ml-8 mt-[-132px] md:mt-[-200px] hidden group-hover:block `}
-            >
-              <Link
-                href={"#"}
-                className={`border rounded px-2 text-sm pt-1`}
-              >
-                اطلاعات بیشتر
-              </Link>
-            </div>
-          </div>
+          ))}
 
           <div className='absolute bottom-[-112px] md:bottom-[-164px] m-[-16px] md:m-0'>
             <Image
