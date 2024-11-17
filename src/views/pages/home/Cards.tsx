@@ -40,11 +40,15 @@ const Cards = () => {
           {[3, 2, 1, 0].map((index) => (
             <div
               key={index}
-              className={`top-[-${100 + index * 40}px] md:top-[-${
-                160 + index * 50
-              }px] hover:top-[-${120 + index * 40}px] hover:md:top-[-${
-                180 + index * 50
-              }px] transition-all absolute w-[310px] md:w-[460px] h-[400px] right-[4px] md:right-[28px] group ${
+              className={`top-[-${100 + index * 40}px] md:top-[-${(
+                160 +
+                index * 50
+              ).toString()}px] hover:top-[-${
+                120 + index * 40
+              }px] hover:md:top-[-${(
+                180 +
+                index * 50
+              ).toString()}px] transition-all absolute w-[310px] md:w-[460px] h-[400px] right-[4px] md:right-[28px] group ${
                 activeCard === index ? "animate-move" : ""
               }`}
             >
