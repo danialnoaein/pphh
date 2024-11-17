@@ -1,35 +1,59 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import styled, { css } from "styled-components";
+
+const AnimatedCard = styled.div<{
+  top: number;
+  isHovered: boolean;
+  isActive: boolean;
+}>`
+  position: absolute;
+  width: 310px;
+  height: 400px;
+  top: ${({ top }) => `-${100 + top * 40}px`};
+  right: -154px;
+  transition: all 0.3s ease;
+
+  @media (min-width: 768px) {
+    width: 460px;
+    right: -228px;
+    top: ${({ top }) => `-${160 + top * 50}px`};
+  }
+
+  ${({ isActive }) =>
+    isActive &&
+    css`
+      animation: move-up-down 1.5s ease-in-out;
+    `}
+
+  &:hover {
+    animation: none;
+    top: ${({ top }) => `-${180 + top * 50}px`};
+  }
+`;
 
 const Cards = () => {
   const [activeCard, setActiveCard] = useState<number>(0);
-  const [cardPositions, setCardPositions] = useState<number[]>([]);
+  const [hoveredCard, setHoveredCard] = useState<number>(0);
 
   useEffect(() => {
-    // Calculate unique positions for each card on the client side
-    setCardPositions([
-      -220, // Card 1 initial top position
-      -180, // Card 2 initial top position
-      -140, // Card 3 initial top position
-      -100, // Card 4 initial top position
-    ]);
+    // Initialize card positions on the client
 
-    const cardsCount = 4; // Number of cards
+    // Randomly activate a card every 3 seconds
     const interval = setInterval(() => {
       setActiveCard((prev) => {
-        let newCard;
+        let nextCard;
         do {
-          newCard = Math.floor(Math.random() * cardsCount); // Randomly pick a card
-        } while (newCard === prev); // Ensure a new card is chosen
-        return newCard;
+          nextCard = Math.floor(Math.random() * 4); // Random card index
+        } while (nextCard === prev);
+        return nextCard;
       });
-    }, 3000); // Switch every 3 seconds
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
+
   return (
     <div className='relative min-h-[24rem] md:min-h-[30rem]'>
       <div className='flex'>
@@ -40,6 +64,7 @@ const Cards = () => {
         <div className='w-[320px] md:w-[512px] text-center justify-center items-center flex flex-col relative'>
           <div className='absolute'>
             <Image
+              className=''
               src={"/images/cards-pocket-bg.png"}
               alt={"section"}
               width={470}
@@ -47,32 +72,34 @@ const Cards = () => {
             />
           </div>
 
-          {cardPositions.map((top, index) => (
-            <div
-              key={index}
-              style={{
-                top: `${top}px`,
-              }}
-              className={`transition-all absolute w-[310px] md:w-[460px] h-[400px] right-[-154px] md:right-[-228px] 
-              hover:top-[${top - 20}px] hover:md:top-[${top - 20}px] 
-              group ${activeCard === index ? "animate-move" : ""}`}
-            >
-              <Image
-                src={"/images/pocket-card-bg.png"}
-                alt={`section ${index + 1}`}
-                width={460}
-                height={400}
-              />
-              <div className='transition-all text-left text-white ml-4 md:ml-8 mt-[-132px] md:mt-[-200px] hidden group-hover:block'>
-                <Link
-                  href={"#"}
-                  className='border rounded px-2 text-sm pt-1'
-                >
-                  اطلاعات بیشتر {index + 1}
-                </Link>
-              </div>
-            </div>
-          ))}
+          <div className='absolute'>
+            {[3, 2, 1, 0].map((top, index) => (
+              <AnimatedCard
+                key={index}
+                top={top}
+                isActive={activeCard === index && hoveredCard !== index}
+                isHovered={hoveredCard === index}
+                onMouseEnter={() => setHoveredCard(index)}
+                onMouseLeave={() => setHoveredCard(null)}
+                className='group'
+              >
+                <Image
+                  src={"/images/pocket-card-bg.png"}
+                  alt={"section"}
+                  width={460}
+                  height={400}
+                />
+                <div className=' transition-all text-left text-white ml-4 md:ml-8 mt-[-132px] md:mt-[-200px] hidden group-hover:block'>
+                  <Link
+                    href={"#"}
+                    className='border rounded px-2 text-sm pt-1'
+                  >
+                    اطلاعات بیشتر 1
+                  </Link>
+                </div>
+              </AnimatedCard>
+            ))}
+          </div>
 
           <div className='absolute bottom-[-112px] md:bottom-[-164px] m-[-16px] md:m-0'>
             <Image
