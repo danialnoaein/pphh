@@ -35,7 +35,7 @@ const AnimatedCard = styled.div<{
 
 const Cards = () => {
   const [activeCard, setActiveCard] = useState<number>(0);
-  const [hoveredCard, setHoveredCard] = useState<number>(0);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(0);
 
   useEffect(() => {
     // Initialize card positions on the client
