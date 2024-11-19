@@ -17,7 +17,7 @@ const IntroSection = ({ reverseOrder }: { reverseOrder: boolean }) => {
           }
         `}
         >
-          <div>
+          <div className="m-4 bg-no-repeat bg-cover bg-[url('/images/intro-section-image-bg-mobile.png')] md:bg-none">
             <Image
               src={"/images/section-1-sabad-gardan.png"}
               alt={"section"}
