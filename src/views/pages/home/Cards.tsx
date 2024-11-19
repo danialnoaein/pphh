@@ -11,7 +11,7 @@ const AnimatedCard = styled.div<{
   position: absolute;
   width: 310px;
   height: 400px;
-  top: ${({ top }) => `-${100 + top * 40}px`};
+  top: ${({ top }) => `-${110 + top * 40}px`};
   right: -154px;
   transition: all 0.3s ease;
 
@@ -29,7 +29,10 @@ const AnimatedCard = styled.div<{
 
   &:hover {
     animation: none;
-    top: ${({ top }) => `-${180 + top * 50}px`};
+    top: ${({ top }) => `-${130 + top * 40}px`};
+    @media (min-width: 768px) {
+      top: ${({ top }) => `-${180 + top * 50}px`};
+    }
   }
 `;
 
@@ -101,7 +104,7 @@ const Cards = () => {
             ))}
           </div>
 
-          <div className='absolute bottom-[-112px] md:bottom-[-164px] m-[-16px] md:m-0'>
+          <div className='absolute bottom-[-104px] md:bottom-[-174px] m-[-10px] md:m-[8px]'>
             <Image
               src={"/images/cards-pocket.png"}
               alt={"section"}

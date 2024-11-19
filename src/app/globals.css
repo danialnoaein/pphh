@@ -25,12 +25,12 @@ body {
 }
 
 .cards-section-bg-right {
-  background-image: url("/images/cards-section-right-bg.png");
+  background-image: url("/images/felesh-ha.svg");
   background-repeat: no-repeat;
   background-position: top right;
 }
 .cards-section-bg-left {
-  background-image: url("/images/cards-section-left-bg.png");
+  background-image: url("/images/felesh-ha.svg");
   background-repeat: no-repeat;
   background-position: top left;
 }
@@ -43,15 +43,17 @@ body {
 }
 
 .intro-section-image-right {
-  /* background-image: url("/images/intro-section-image-bg-right.png"); */
-  background-repeat: no-repeat;
-  background-position: right;
+  background-position: right -260px top 0;
+}
+.intro-section-image-right:hover {
+  background-position: right -40px top 0;
 }
 
 .intro-section-image-left {
-  /* background-image: url("/images/intro-section-image-bg-left.png"); */
-  background-repeat: no-repeat;
-  background-position: left;
+  background-position: left -260px top 0;
+}
+.intro-section-image-left:hover {
+  background-position: left -160px top 0;
 }
 .bg-pattern {
   background-image: url("/images/bg-pattern.png");

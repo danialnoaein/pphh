@@ -6,7 +6,7 @@ const BenefitsSection = () => {
       <div className='bg-white'>
         <div className='rounded-t-[4rem] rounded-xl bg-white shadow-xl over overflow-hidden	'>
           <Image
-            src={"/images/content-poster.jpg"}
+            src={"/images/services-1.png"}
             alt={"section"}
             width={512}
             height={512}
@@ -31,7 +31,7 @@ const BenefitsSection = () => {
       <div className='bg-white'>
         <div className='rounded-t-[4rem] rounded-xl bg-white shadow-xl over overflow-hidden	'>
           <Image
-            src={"/images/content-poster.jpg"}
+            src={"/images/services-2.png"}
             alt={"section"}
             width={512}
             height={512}

@@ -4,7 +4,7 @@ import { IconPencil } from "@tabler/icons-react";
 const IntroSection = ({ reverseOrder }: { reverseOrder: boolean }) => {
   return (
     <div
-      className={`border container relative mx-auto my-4 bg-[#FAFBFF] bg-none  ${
+      className={`border container relative mx-auto my-4 bg-[#FAFBFF] bg-none duration-1000 transition-all bg-no-repeat ${
         reverseOrder
           ? "intro-section-image-left md:bg-[url('/images/intro-section-image-bg-left.png')]"
           : "intro-section-image-right md:bg-[url('/images/intro-section-image-bg-right.png')]"

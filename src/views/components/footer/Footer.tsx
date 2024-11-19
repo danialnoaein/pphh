@@ -4,8 +4,8 @@ const Footer = () => {
   return (
     <div className='bg-primary-500 bg-pattern'>
       <div className='container mx-auto text-white'>
-        <div className='flex py-8'>
-          <div className='flex-1'>
+        <div className='grid grid-cols-1 md:grid-cols-5 py-8'>
+          <div>
             <div className='mb-4'>صندوق ها</div>
             <div>
               <ul className='flex flex-col gap-2'>
@@ -24,7 +24,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className='flex-1'>
+          <div>
             <div className='mb-4'>صندوق ها</div>
             <div>
               <ul className='flex flex-col gap-2'>
@@ -43,7 +43,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className='flex-1'>
+          <div>
             <div className='mb-4'>صندوق ها</div>
             <div>
               <ul className='flex flex-col gap-2'>
@@ -62,7 +62,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className='flex-1'>
+          <div>
             <div className='mb-4'>صندوق ها</div>
             <div>
               <ul className='flex flex-col gap-2'>
@@ -81,7 +81,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className='flex-1'>social</div>
+          <div>Social Media Links</div>
         </div>
         <div className='border-t border-white flex py-4 mt-4'>
           <Image
