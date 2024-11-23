@@ -1,19 +1,19 @@
 "use client";
 
-import Nav from "@/views/components/nav/Nav";
-import Hero from "./Hero";
-import Cards from "./Cards";
-import Tabs from "./Tabs";
-import IntroSection from "./IntroSection";
-import TextSection from "./TextSection";
-import BenefitsSection from "./BenefitsSection";
-import ContentSection from "./ContentSection";
-import MoveToTopInFooter from "./MoveToTopInFooter";
 import Footer from "@/views/components/footer/Footer";
+import Nav from "@/views/components/nav/Nav";
+import BenefitsSection from "./BenefitsSection";
+import Cards from "./Cards";
+import ContentSection from "./ContentSection";
+import Hero from "./Hero";
+import IntroSection from "./IntroSection";
+import MoveToTopInFooter from "./MoveToTopInFooter";
+import Tabs from "./Tabs";
+import TextSection from "./TextSection";
 
 const Home = () => {
   return (
-    <div className='bg-[#FAFBFF]'>
+    <div className="bg-[#FAFBFF]">
       <Nav />
       <Hero />
       <Cards />
@@ -23,7 +23,7 @@ const Home = () => {
         header={
           <div>
             صندوق های سرمایه گذاری{" "}
-            <span className='font-bold text-primary-500'>پاداش</span>
+            <span className="font-bold text-primary-500">پاداش</span>
           </div>
         }
         description={
@@ -35,7 +35,7 @@ const Home = () => {
         header={
           <div>
             پازل بازار‌ سرمایه چگونه با{" "}
-            <span className='font-bold text-primary-500'>پاداش</span> تکمیل
+            <span className="font-bold text-primary-500">پاداش</span> تکمیل
             می‌شود؟
           </div>
         }
@@ -52,7 +52,7 @@ const Home = () => {
       <TextSection
         header={
           <div>
-            مزایای <span className='font-bold text-primary-500'>پاداش</span> به
+            مزایای <span className="font-bold text-primary-500">پاداش</span> به
             نسبت رقبا چیست ؟
           </div>
         }
