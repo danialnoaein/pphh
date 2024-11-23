@@ -25,14 +25,14 @@ const CounselingIcon = () => {
             <path
               d="M6.57398 40.9879C11.3348 36.5748 15.6042 33.8994 22.4361 33.8994C29.268 33.8994 33.5374 36.5748 38.2983 40.9879C40.4132 42.9483 40.7406 46.1382 39.2805 48.4793C38.7546 49.3224 37.7461 49.6673 36.7523 49.6673H8.11997C7.12615 49.6673 6.11764 49.3224 5.59174 48.4793C4.13168 46.1382 4.45906 42.9483 6.57398 40.9879Z"
               fill="white"
-              fill-opacity="0.4"
+              fillOpacity="0.4"
             />
           </g>
           <g filter="url(#filter4_ii_792_1483)">
             <path
               d="M22.4373 29.9564C27.3357 29.9564 31.3067 25.9854 31.3067 21.087C31.3067 16.1885 27.3357 12.2175 22.4373 12.2175C17.5389 12.2175 13.5679 16.1885 13.5679 21.087C13.5679 25.9854 17.5389 29.9564 22.4373 29.9564Z"
               fill="white"
-              fill-opacity="0.4"
+              fillOpacity="0.4"
             />
           </g>
         </g>
@@ -44,9 +44,9 @@ const CounselingIcon = () => {
             width="63.3035"
             height="61.334"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -78,9 +78,9 @@ const CounselingIcon = () => {
             width="35.4778"
             height="15.7678"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -113,9 +113,9 @@ const CounselingIcon = () => {
             width="17.7388"
             height="17.7388"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -148,9 +148,9 @@ const CounselingIcon = () => {
             width="35.4778"
             height="19.7678"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -201,9 +201,9 @@ const CounselingIcon = () => {
             width="17.7388"
             height="21.7388"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -255,8 +255,8 @@ const CounselingIcon = () => {
             y2="41.7825"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#93DF32" />
-            <stop offset="1" stop-color="#70BD0D" />
+            <stop stopColor="#93DF32" />
+            <stop offset="1" stopColor="#70BD0D" />
           </linearGradient>
           <linearGradient
             id="paint1_linear_792_1483"
@@ -266,8 +266,8 @@ const CounselingIcon = () => {
             y2="22.0721"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#93DF32" />
-            <stop offset="1" stop-color="#70BD0D" />
+            <stop stopColor="#93DF32" />
+            <stop offset="1" stopColor="#70BD0D" />
           </linearGradient>
         </defs>
       </svg>
