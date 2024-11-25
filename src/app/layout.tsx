@@ -29,10 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang='en'
-      dir='rtl'
-    >
+    <html lang="en" dir="rtl">
       <body className={`${yekanBakh.className} antialiased`}>{children}</body>
     </html>
   );
