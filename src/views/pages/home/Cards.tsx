@@ -60,60 +60,20 @@ const Cards = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const cardData = [
+    { link: "#", label: "صندوق های پاداش(سبدگردان)", top: 3 },
+    { link: "#", label: "مشاور سرمایه گذاری", top: 2 },
+    { link: "#", label: "کارگزاری پاداش", top: 1 },
+    { link: "#", label: "لیزینگ پاداش", top: 0 },
+  ];
+
   return (
     <div className="relative min-h-[24rem] md:min-h-[30rem]">
       <div className="flex">
         <div className="flex-1 cards-section-bg-right h-[360px] md:h-[512px]"></div>
         <div className="flex-1 cards-section-bg-left h-[360px] md:h-[512px]"></div>
       </div>
-      {/* <div className="container mx-auto justify-center flex mt-[-7rem] md:mt-[-10rem]">
-        <div className="w-[320px] md:w-[512px] text-center justify-center items-center flex flex-col relative">
-          <div className="absolute">
-            <Image
-              className=""
-              src={"/images/cards-pocket-bg.png"}
-              alt={"section"}
-              width={470}
-              height={400}
-            />
-          </div>
 
-          <div className="absolute">
-            {[3, 2, 1, 0].map((top, index) => (
-              <AnimatedCard
-                key={index}
-                top={top}
-                isactive={activeCard === index && hoveredCard !== index}
-                ishovered={hoveredCard === index}
-                onMouseEnter={() => setHoveredCard(index)}
-                onMouseLeave={() => setHoveredCard(null)}
-                className="group"
-              >
-                <Image
-                  src={"/images/pocket-card-bg.png"}
-                  alt={"section"}
-                  width={460}
-                  height={400}
-                />
-                <div className=" transition-all text-left text-white ml-4 md:ml-8 mt-[-132px] md:mt-[-200px] hidden group-hover:block">
-                  <Link href={"#"} className="border rounded px-2 text-sm pt-1">
-                    اطلاعات بیشتر 1
-                  </Link>
-                </div>
-              </AnimatedCard>
-            ))}
-          </div>
-
-          <div className="absolute bottom-[-104px] md:bottom-[-174px] m-[-10px] md:m-[8px]">
-            <Image
-              src={"/images/cards-pocket.png"}
-              alt={"section"}
-              width={520}
-              height={400}
-            />
-          </div>
-        </div>
-      </div> */}
       <div className="container mx-auto justify-center flex mt-[-7rem] md:mt-[-10rem] md:scale-110">
         <div className="w-[310px] md:w-[500px] text-center justify-center items-center flex flex-col relative">
           <div className="absolute">
@@ -126,10 +86,10 @@ const Cards = () => {
           </div>
 
           <div className="absolute">
-            {[3, 2, 1, 0].map((top, index) => (
+            {cardData.map((item, index) => (
               <AnimatedCard
                 key={index}
-                top={top}
+                top={item.top}
                 isactive={activeCard === index && hoveredCard !== index}
                 ishovered={hoveredCard === index}
                 onMouseEnter={() => setHoveredCard(index)}
@@ -144,10 +104,11 @@ const Cards = () => {
                 />
                 <div className="absolute top-4 right-4 text-white text-lg font-bold">
                   {/* عنوان کارت */}
+                  <span className="text-xs ">{item.label}</span>
                 </div>
                 <div className="absolute top-4 left-4 flex items-center space-x-2">
                   <Link
-                    href={"#"}
+                    href={item.link}
                     className="border border-white rounded-2xl px-2 text-sm py-[2px] md:py-1 flex items-center text-white"
                   >
                     <span className="text-xs md:text-sm ">اطلاعات بیشتر</span>
