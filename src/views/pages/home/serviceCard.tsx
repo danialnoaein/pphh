@@ -16,7 +16,9 @@ const Container = styled.div`
   height: 340px;
 `;
 
-const MainCard = styled.div<{ isHovered: boolean }>`
+const MainCard = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== "ishovered",
+})<{ ishovered: boolean }>`
   position: relative;
   width: 500px;
   height: 300px;
@@ -28,8 +30,10 @@ const MainCard = styled.div<{ isHovered: boolean }>`
   transition: background-color 0.3s ease;
 `;
 
-const AnimatedItem = styled.div<{
-  isVisible: boolean;
+const AnimatedItem = styled.div.withConfig({
+  shouldForwardProp: (prop) => !["isvisible", "x", "y"].includes(prop),
+})<{
+  isvisible: boolean;
   x: number;
   y: number;
 }>`
@@ -38,8 +42,8 @@ const AnimatedItem = styled.div<{
   transform: scale(0.8);
   transition: opacity 0.5s ease, transform 0.5s ease;
 
-  ${({ isVisible, x, y }) =>
-    isVisible &&
+  ${({ isvisible, x, y }) =>
+    isvisible &&
     css`
       opacity: 1;
       transform: translate(${x}px, ${y}px) scale(1);
@@ -55,7 +59,7 @@ const AnimatedItem = styled.div<{
 `;
 
 const ServiceCard = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [ishovered, setishovered] = useState(false);
 
   const items = [
     { label: "مشاوره", x: -190, y: 10, icon: <CounselingIcon /> },
@@ -67,14 +71,14 @@ const ServiceCard = () => {
   return (
     <Container>
       <MainCard
-        isHovered={isHovered}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        ishovered={ishovered}
+        onMouseEnter={() => setishovered(true)}
+        onMouseLeave={() => setishovered(false)}
       >
         {items.map((item, index) => (
           <AnimatedItem
             key={index}
-            isVisible={isHovered}
+            isvisible={ishovered}
             x={item.x}
             y={item.y}
             className="w-20 h-20 rounded-full flex justify-center items-center text-center text-white font-bold"
