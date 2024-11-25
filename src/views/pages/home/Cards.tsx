@@ -148,9 +148,9 @@ const Cards = () => {
                 <div className="absolute top-4 left-4 flex items-center space-x-2">
                   <Link
                     href={"#"}
-                    className="border border-white rounded-2xl px-2 text-sm py-1 flex items-center text-white"
+                    className="border border-white rounded-2xl px-2 text-sm py-[2px] md:py-1 flex items-center text-white"
                   >
-                    <span>اطلاعات بیشتر</span>
+                    <span className="text-xs md:text-sm ">اطلاعات بیشتر</span>
                     <div>
                       <ArrowLeft />
                     </div>
