@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
+import ArrowLeft from "../../../../public/arrowLeft";
 
 const AnimatedCard = styled.div.withConfig({
   shouldForwardProp: (prop) => !["top", "ishovered", "isactive"].includes(prop),
@@ -65,7 +66,7 @@ const Cards = () => {
         <div className="flex-1 cards-section-bg-right h-[360px] md:h-[512px]"></div>
         <div className="flex-1 cards-section-bg-left h-[360px] md:h-[512px]"></div>
       </div>
-      <div className="container mx-auto justify-center flex mt-[-7rem] md:mt-[-10rem]">
+      {/* <div className="container mx-auto justify-center flex mt-[-7rem] md:mt-[-10rem]">
         <div className="w-[320px] md:w-[512px] text-center justify-center items-center flex flex-col relative">
           <div className="absolute">
             <Image
@@ -109,6 +110,62 @@ const Cards = () => {
               alt={"section"}
               width={520}
               height={400}
+            />
+          </div>
+        </div>
+      </div> */}
+      <div className="container mx-auto justify-center flex mt-[-7rem] md:mt-[-10rem] md:scale-110">
+        <div className="w-[310px] md:w-[500px] text-center justify-center items-center flex flex-col relative">
+          <div className="absolute">
+            <Image
+              src={"/images/cards-pocket-bg.png"}
+              alt={"section"}
+              width={520}
+              height={420}
+            />
+          </div>
+
+          <div className="absolute">
+            {[3, 2, 1, 0].map((top, index) => (
+              <AnimatedCard
+                key={index}
+                top={top}
+                isactive={activeCard === index && hoveredCard !== index}
+                ishovered={hoveredCard === index}
+                onMouseEnter={() => setHoveredCard(index)}
+                onMouseLeave={() => setHoveredCard(null)}
+                className="group"
+              >
+                <Image
+                  src={"/images/pocket-card-bg.png"}
+                  alt={"section"}
+                  width={520}
+                  height={420}
+                />
+                <div className="absolute top-4 right-4 text-white text-lg font-bold">
+                  {/* عنوان کارت */}
+                </div>
+                <div className="absolute top-4 left-4 flex items-center space-x-2">
+                  <Link
+                    href={"#"}
+                    className="border border-white rounded-2xl px-2 text-sm py-1 flex items-center text-white"
+                  >
+                    <span>اطلاعات بیشتر</span>
+                    <div>
+                      <ArrowLeft />
+                    </div>
+                  </Link>
+                </div>
+              </AnimatedCard>
+            ))}
+          </div>
+
+          <div className="absolute md:w-[520px] bottom-[-104px] md:bottom-[-178px] m-[-10px] md:m-[8px]">
+            <Image
+              src={"/images/cards-pocket.png"}
+              alt={"section"}
+              width={600}
+              height={460}
             />
           </div>
         </div>

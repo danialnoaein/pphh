@@ -25,12 +25,12 @@ body {
 }
 
 .cards-section-bg-right {
-  background-image: url("/images/felesh-ha.svg");
+  background-image: url("/images/cards-section-right-bg.png");
   background-repeat: no-repeat;
   background-position: top right;
 }
 .cards-section-bg-left {
-  background-image: url("/images/felesh-ha.svg");
+  background-image: url("/images/cards-section-left-bg.png");
   background-repeat: no-repeat;
   background-position: top left;
 }
