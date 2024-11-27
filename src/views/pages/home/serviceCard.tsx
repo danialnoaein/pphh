@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled, { css } from "styled-components";
 import BasketMakerIcon from "../../../../public/basketMaker";
 import CounselingIcon from "../../../../public/counseling";
@@ -101,9 +100,7 @@ const AnimatedItem = styled.div.withConfig({
   }
 `;
 
-const ServiceCard = () => {
-  const [ishovered, setishovered] = useState(false);
-
+const ServiceCard = ({ isVisible }: { isVisible: boolean }) => {
   const items = [
     { label: "مشاوره", x: -190, y: 10, icon: <CounselingIcon /> },
     { label: "سبدگردان", x: -100, y: -100, icon: <BasketMakerIcon /> },
@@ -113,15 +110,11 @@ const ServiceCard = () => {
 
   return (
     <Container>
-      <MainCard
-        ishovered={ishovered}
-        onMouseEnter={() => setishovered(true)}
-        onMouseLeave={() => setishovered(false)}
-      >
+      <MainCard ishovered={isVisible}>
         {items.map((item, index) => (
           <AnimatedItem
             key={index}
-            isvisible={ishovered}
+            isvisible={isVisible}
             x={item.x}
             y={item.y}
             className="w-20 h-20 rounded-full flex justify-center items-center text-center text-white font-bold"
