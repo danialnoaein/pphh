@@ -43,11 +43,12 @@ const Home = () => {
           "گروه خدمات بازار سرمایه پاداش در چهار محور اصلی کارگزاری، سبدگردانی، مشاور سرمایه گذاری و لیزینگ با مدیریت دارایی تخصصی خدمات ارائه می دهد."
         }
       />
-
-      <IntroSection reverseOrder={false} />
-      <IntroSection reverseOrder={true} />
-      <IntroSection reverseOrder={false} />
-      <IntroSection reverseOrder={true} />
+      <div className="px-4 md:px-0">
+        <IntroSection reverseOrder={false} />
+        <IntroSection reverseOrder={true} />
+        <IntroSection reverseOrder={false} />
+        <IntroSection reverseOrder={true} />
+      </div>
 
       <TextSection
         header={
