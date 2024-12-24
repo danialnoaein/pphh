@@ -1,111 +1,113 @@
-import FundPricingStatusCard from "@/views/components/FundPricingStatusCard/FundPricingStatusCard";
-import Image from "next/image";
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import BehgozinTab from "./fundTabs/BehgozinTab";
 
-const tabsData = [
-  {
-    title: "بهگزین",
-    content:
-      "Ut irure mollit nulla eiusmod excepteur laboris elit sit anim magna tempor excepteur labore nulla.",
-  },
-  {
-    title: "پتروپاداش",
-    content:
-      "Fugiat dolor et quis in incididunt aute. Ullamco voluptate consectetur dolor officia sunt est dolor sint.",
-  },
+interface IFundInfo {
+  calcDate: string;
+  fundCapital: number;
+  purchaseNav: number;
+  saleNav: number;
+  fundNavId: number;
+  issuedUnit: number;
+  revokedUnit: number;
+  statisticNav: number;
+}
 
-  {
-    title: "پاداش",
-    content:
-      "Fugiat dolor et quis in incididunt aute. Ullamco voluptate consectetur dolor officia sunt est dolor sint.",
-  },
-];
+export interface IFundList {
+  fund: {
+    id: number;
+    title: string;
+    shortTitle: string;
+    fundType: number;
+    monthlyProfit: number;
+    yearlyProfit: number;
+    dsCode: number;
+  };
+  fundInfo: IFundInfo[];
+  fundtype: {
+    id: number;
+    title: string;
+  };
+}
+
+interface Tab {
+  id: number;
+  title: string;
+  tabName: string;
+  component: JSX.Element;
+}
 
 const Tabs = () => {
-  const [activeTabIndex, setActiveTabIndex] = useState(0);
+  const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
+  const [funds, setFunds] = useState<Tab[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
-  const content = (activeTabIndex: number) => {
+  const shortDesc: Record<string, string> = {
+    11394:
+      "با سرمایه‌گذاری در صندوق اهرمی  می‌تونی بیشتر از دارایی خودت در بورس سرمایه‌گذاری کنی و به صورت اهرمی در بورس بازدهی کسب کنی.",
+  };
+
+  const desc: Record<string, string> = {
+    11394:
+      "صندوق سرمایه گذاری پاداش سرمایه بهگزین در تاریخ 1394/09/17 با دریافت مجوز از سازمان بورس و اوراق بهادار (سبا) فعالیت خود را آغاز کرد. این صندوق همواره یکی از پر بازده ترین صندوق های با درآمد ثابت کشور بوده است. خالص ارزش روز دارایی های صندوق سرمایه گذاری پاداش سرمایه بهگزین بر 21٫6٠٠میلیارد ریال بوده است که نشان دهنده اعتماد بسیار بالای مشتریان و سرمایه گذاران به این صندوق به عنوان یکی از قدیمی ترین و برترین صندوق های درآمد ثابت کشور بوده است.",
+  };
+
+  useEffect(() => {
+    const fetchFunds = async () => {
+      try {
+        const response = await axios.get<IFundList[]>(
+          "http://192.168.10.3:40/api/Fund"
+        );
+        const fundsData = response.data;
+        const newTabsData: Tab[] = fundsData.map((item) => ({
+          id: item.fund.id,
+          title: item.fund.title,
+          tabName: item.fund.shortTitle,
+          component: (
+            <BehgozinTab
+              shortDesc={shortDesc[item.fund.dsCode]}
+              desc={desc[item.fund.dsCode]}
+              fundData={item}
+            />
+          ),
+        }));
+
+        setFunds(newTabsData);
+      } catch {
+        console.error("Error fetching funds");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFunds();
+  }, []);
+
+  if (loading) {
     return (
-      <div className={`relative mx-auto bg-[#FAFBFF] overflow-hidden`}>
-        <div className={`grid grid-cols-1 md:grid-cols-2 items-center`}>
-          <div className='flex-1 relative'>
-            <div className='relative z-[1] flex  justify-center items-center flex-col text-white'>
-              <Image
-                src={"/images/fund-section-item.png"}
-                alt={"section"}
-                width={400}
-                height={400}
-              />
-              <div className='px-8 mt-[-32px]'>
-                <div className='font-bold text-2xl'>
-                  {tabsData[activeTabIndex].title}
-                </div>
-                <div className='text-sm mb-4'>
-                  صندوق سرمایه‌گذاری اهرمی پاداش (واحدهای ممتاز)
-                </div>
-                <div>
-                  با سرمایه‌گذاری در صندوق اهرمی کاریزما می‌تونی بیشتر از دارایی
-                  خودت در بورس سرمایه‌گذاری کنی و به صورت اهرمی در بورس بازدهی
-                  کسب کنی. صندوق اهرمی کاریزما نخستین و بزرگترین صندوق از نوع
-                  اهرمی در بازار سرمایه است.
-                </div>
-                <div className='text-left mt-4'>اطلاعات بیشتر</div>
-              </div>
-            </div>
-            <div className='absolute bottom-[-50px] z-0'>
-              <Image
-                src={"/images/cards-pocket-bg.png"}
-                alt={"section"}
-                width={800}
-                height={400}
-              />
-            </div>
-          </div>
-          <div className='flex-1 mx-8 pb-16'>
-            <div className='text-sm shadow w-20 rounded-full text-center mt-12 mb-6'>
-              تحلیل
-            </div>
-            <div className='mb-6 text-4xl'>شرکت سبدگردان پاداش</div>
-            <div className='text-justify'>
-              کارگزاری پاداش از جمله کارگزاری‌هایی است که فرآیند ثبت نام و احراز
-              هویت را به صورت غیرحضوری انجام می‌دهد. افتتاح حساب شما در کارگزاری
-              پاداش کمتر از 5 دقیقه زمان نیاز دارد. شرکت کارگزاری پاداش با
-              مدیریت حرفه ای و بهره گیری از نیروهای متخصص و باتجربه سعی در ارائه
-              خدمات سرمایه گذاری در بازار سرمایه اعم از بورس اوراق بهادار، بورس
-              کالا، انرژی و ابزار مشتقه، د
-            </div>
-            <div className='grid grid-cols-2 gap-4 mt-8'>
-              <FundPricingStatusCard />
-              <FundPricingStatusCard />
-              <FundPricingStatusCard />
-              <FundPricingStatusCard />
-            </div>
-          </div>
-        </div>
+      <div className="flex items-center justify-center h-screen">
+        <div className="w-16 h-16 border-4 border-t-4 border-gray-200 rounded-full animate-spin"></div>
       </div>
     );
-  };
+  }
   return (
-    <div className='container mx-auto my-16'>
-      <div className='flex'>
-        {/* Loop through tab data and render button for each. */}
-        {tabsData.map((tab, idx) => {
-          return (
-            <button
-              key={idx}
-              className={`border flex-1 md:flex-none border-b-0 rounded-t-full py-1 px-6 bg-[#F6F9FC]`}
-              // Change the active tab on click.
-              onClick={() => setActiveTabIndex(idx)}
-            >
-              <span className='hidden md:inline-block ml-1'>صندوق </span>
-              {tab.title}
-            </button>
-          );
-        })}
+    <div className="container mx-auto my-16 px-4 md:px-0">
+      <div className="flex">
+        {funds.map((tab, idx) => (
+          <button
+            key={tab.id}
+            className={`border flex-1 md:flex-none border-b-0 rounded-t-full py-1 px-6 bg-[#F6F9FC] ${
+              activeTabIndex === idx ? "bg-white" : ""
+            } ${idx !== 0 ? "cursor-not-allowed opacity-50" : ""}`}
+            onClick={() => idx === 0 && setActiveTabIndex(idx)}
+            disabled={idx !== 0}
+          >
+            <span className="inline-block ml-1">صندوق {tab.tabName}</span>
+          </button>
+        ))}
       </div>
-      {/* Show active tab content. */}
-      <div className='border bg-[#FAFBFF]'>
-        <div>{content(activeTabIndex)}</div>
+      <div className="border bg-[#FAFBFF]">
+        {funds[activeTabIndex]?.component}
       </div>
     </div>
   );

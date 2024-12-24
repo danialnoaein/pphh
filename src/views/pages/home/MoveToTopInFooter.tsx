@@ -5,7 +5,7 @@ const MoveToTopInFooter = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   return (
-    <div className='flex justify-center my-4'>
+    <div className='flex justify-center my-4 cursor-pointer'>
       <div
         className='shadow rounded-full p-2'
         onClick={handleMoveToTopClick}
