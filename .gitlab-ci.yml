@@ -35,9 +35,9 @@ deploy:
     - ssh-keyscan -p $VPS_PORT $VPS_HOST >> ~/.ssh/known_hosts
   script:
     - ssh -p $VPS_PORT $VPS_USER@$VPS_HOST "
-        cd /path/to/your/app ||
-        git clone https://your_gitlab_server/your_group/your_repo.git /path/to/your/app;
-        cd /path/to/your/app;
+        cd /home/ubuntu/main-padash-client ||
+        git clone http://192.168.10.246/root/padash-main-landing.git /home/ubuntu/main-padash-client;
+        cd /home/ubuntu/main-padash-client;
         git pull origin main;
         docker-compose down;
         docker-compose up -d --build
