@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { JSX, useEffect, useState } from "react";
 import BehgozinTab from "./fundTabs/BehgozinTab";
 
 interface IFundInfo {
