@@ -35,7 +35,8 @@ deploy:
     DOCKER_DRIVER: "overlay2"
     DOCKER_TLS_CERTDIR: ""
   script:
-    - apk update && apk add --no-cache docker-compose git
+    #- apk update && apk add --no-cache docker-compose git
+    - sudo apt-get update && sudo apt-get install -y docker-compose git
     - docker pull "$DOCKER_IMAGE"
     - mkdir -p /home/ubuntu/main-padash-client
     - cd /home/ubuntu/main-padash-client
