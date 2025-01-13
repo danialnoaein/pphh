@@ -56,7 +56,7 @@ const Tabs = () => {
     const fetchFunds = async () => {
       try {
         const response = await axios.get<IFundList[]>(
-          "http://192.168.10.3:40/api/Fund"
+          `${process.env.NEXT_PUBLIC_FUND_API_URL}/Fund`
         );
         const fundsData = response.data;
         const newTabsData: Tab[] = fundsData.map((item) => ({
