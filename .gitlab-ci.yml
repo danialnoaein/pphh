@@ -36,13 +36,13 @@ deploy:
     DOCKER_TLS_CERTDIR: ""
   script:
     #- apk update && apk add --no-cache docker-compose git
-    - apt-get update && sudo apt-get install -y docker-compose git
-    - docker pull "$DOCKER_IMAGE"
+    - sudo apt-get update && sudo apt-get install -y docker-compose git
+    - sudo docker pull "$DOCKER_IMAGE"
     - mkdir -p /home/ubuntu/main-padash-client
     - cd /home/ubuntu/main-padash-client
-    - git clone "https://oauth2:${DEPLOY_TOKEN}@gitlab.com/mrtz73/padash-landing.git" . || git pull
-    - docker-compose down
-    - docker-compose up -d --build
+    - sudo git clone "https://oauth2:${DEPLOY_TOKEN}@gitlab.com/mrtz73/padash-landing.git" . || git pull
+    - sudo docker-compose down
+    - sudo docker-compose up -d --build
   only:
     - main
   tags:
