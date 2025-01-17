@@ -27,13 +27,13 @@ build:
 deploy:
   stage: deploy
   image: docker:20.10.16
-  services:
-    - name: docker:20.10.16-dind
-      command: ["--tls=false", "--host=tcp://0.0.0.0:2375"]
-  variables:
-    DOCKER_HOST: "tcp://docker:2375"
-    DOCKER_DRIVER: "overlay2"
-    DOCKER_TLS_CERTDIR: ""
+  # services:
+  #   - name: docker:20.10.16-dind
+  #     command: ["--tls=false", "--host=tcp://0.0.0.0:2375"]
+  # variables:
+  #   DOCKER_HOST: "tcp://docker:2375"
+  #   DOCKER_DRIVER: "overlay2"
+  #   DOCKER_TLS_CERTDIR: ""
   script:
     - sudo apt-get update && sudo apt-get install -y docker-compose git
     - sudo docker pull "$DOCKER_IMAGE"
