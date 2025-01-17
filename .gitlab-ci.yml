@@ -37,10 +37,9 @@ deploy:
   script:
     - sudo apt-get update && sudo apt-get install -y docker-compose git
     - sudo docker pull "$DOCKER_IMAGE"
-    - sudo rm -rf /home/ubuntu/main-padash-client
-    - mkdir -p /home/ubuntu/main-padash-client
-    - sudo chown -R $USER:$USER /home/ubuntu/main-padash-client
-    - cd /home/ubuntu/main-padash-client
+    - sudo rm -rf /home/gitlab-runner/main-padash-client
+    - mkdir -p /home/gitlab-runner/main-padash-client
+    - cd /home/gitlab-runner/main-padash-client
 
     # Mark the directory as safe for Git
     - git config --global --add safe.directory /home/ubuntu/main-padash-client
