@@ -3,7 +3,7 @@ version: '3.8'
 services:
   web:
     # Use the Docker image you built/pushed (e.g., from your build job).
-    image: m1994yazdani/main-padash-client:latest
+    image: $DOCKER_IMAGE_PREFIX/main-padash-client:latest
 
     # Map container port 3000 to host port 3000
     ports:
