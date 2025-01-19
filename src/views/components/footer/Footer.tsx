@@ -92,7 +92,11 @@ const Footer = () => {
           />
           <div className="flex-1"></div>
           <div>
-            <a className="text-white hover:text-blue-200 rounded border-2 px-2 py-1">
+            <a
+              className="text-white hover:text-blue-200 rounded border-2 px-2 py-1 cursor-pointer"
+              href="https://app.paadaash.ir/"
+              target="_blank"
+            >
               ورود | ثبت نام
             </a>
           </div>

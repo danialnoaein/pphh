@@ -5,12 +5,17 @@ import "./globals.css";
 const yekanBakh = localFont({
   src: [
     {
-      path: "./fonts/yekan-bakh-regular.ttf",
+      path: "./fonts/yekan-bakh-regular.woff",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./fonts/yekan-bakh-bold.ttf",
+      path: "./fonts/yekan-bakh-medium.woff",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/yekan-bakh-bold.woff",
       weight: "700",
       style: "normal",
     },

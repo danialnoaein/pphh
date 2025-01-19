@@ -102,10 +102,22 @@ const AnimatedItem = styled.div.withConfig({
 
 const ServiceCard = ({ isVisible }: { isVisible: boolean }) => {
   const items = [
-    { label: "مشاوره", x: -190, y: 10, icon: <CounselingIcon /> },
-    { label: "سبدگردان", x: -100, y: -100, icon: <BasketMakerIcon /> },
-    { label: "لیزینگ", x: 100, y: -100, icon: <LeasingIcon /> },
-    { label: "کارگزاری", x: 190, y: 10, icon: <CounselingIcon /> },
+    { label: "مشاوره", x: -190, y: 10, icon: <CounselingIcon />, href: "#" },
+    {
+      label: "سبدگردان",
+      x: -100,
+      y: -100,
+      icon: <BasketMakerIcon />,
+      href: "#",
+    },
+    {
+      label: "لیزینگ",
+      x: 100,
+      y: -100,
+      icon: <LeasingIcon />,
+      href: "https://leasing.paadaash.ir/",
+    },
+    { label: "کارگزاری", x: 190, y: 10, icon: <CounselingIcon />, href: "#" },
   ];
 
   return (
@@ -117,7 +129,8 @@ const ServiceCard = ({ isVisible }: { isVisible: boolean }) => {
             isvisible={isVisible}
             x={item.x}
             y={item.y}
-            className="w-20 h-20 rounded-full flex justify-center items-center text-center text-white font-bold"
+            className="w-20 h-20 rounded-full flex justify-center items-center text-center text-white font-bold cursor-pointer"
+            onClick={() => window.open(item.href, "_blank")}
           >
             {item.icon}
             <div className="ml-[-7px]">{item.label}</div>

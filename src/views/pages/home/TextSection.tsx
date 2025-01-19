@@ -10,7 +10,7 @@ const TextSection = ({
   return (
     <div className="py-16 container mx-auto text-section text-center bg-center px-3 md:px-0">
       <div className="text-2xl md:text-3xl">{header}</div>
-      <div className="mt-4">{description}</div>
+      <div className="mt-4 max-w-2xl mx-auto text-[#94989E]">{description}</div>
     </div>
   );
 };

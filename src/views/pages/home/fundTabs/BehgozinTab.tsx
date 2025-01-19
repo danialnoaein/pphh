@@ -38,7 +38,7 @@ const BehgozinTab = ({ fundData, shortDesc, desc }: BehgozinTabProps) => {
                   {shortDesc}
                 </div>
                 <div className="flex justify-end my-2 md:my-8">
-                  <div className="text-sm sm:text-base transition-transform duration-300 group-hover:border group-hover:p-2 rounded-3xl w-32">
+                  <div className="text-sm sm:text-base transition-transform duration-300 group-hover:border group-hover:px-2 group-hover:p-2 rounded-3xl w-32 text-nowrap">
                     <div className="text-center">اطلاعات بیشتر ←</div>
                   </div>
                 </div>

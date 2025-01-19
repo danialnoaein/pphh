@@ -68,13 +68,17 @@ const Cards = () => {
     return () => {
       clearInterval(interval);
     };
-  }, [hoveredCard]); 
+  }, [hoveredCard]);
 
   const cardData = [
-    { link: "#", label: "صندوق های پاداش(سبدگردان)", top: 3 },
+    {
+      link: "https://fund.paadaash.ir/",
+      label: "صندوق های پاداش(سبدگردان)",
+      top: 3,
+    },
     { link: "#", label: "مشاور سرمایه گذاری", top: 2 },
     { link: "#", label: "کارگزاری پاداش", top: 1 },
-    { link: "#", label: "لیزینگ پاداش", top: 0 },
+    { link: "https://leasing.paadaash.ir/", label: "لیزینگ پاداش", top: 0 },
   ];
 
   return (
@@ -105,10 +109,10 @@ const Cards = () => {
                   ishovered={hoveredCard === index}
                   onMouseEnter={() => {
                     setHoveredCard(index);
-                    setActiveCard(index); 
+                    setActiveCard(index);
                   }}
-                  onMouseLeave={() => setHoveredCard(null)} 
-                  className="group mt-4"
+                  onMouseLeave={() => setHoveredCard(null)}
+                  className="group mt-4 cursor-pointer"
                 >
                   <Image
                     src={"/images/pocket-card-bg.png"}
@@ -119,10 +123,11 @@ const Cards = () => {
                   <div className="absolute top-4 right-4 text-white text-lg font-bold">
                     <span className="text-xs">{item.label}</span>
                   </div>
-                  {activeCard === index && ( 
+                  {activeCard === index && (
                     <div className="absolute top-4 left-4 flex items-center space-x-2 ">
                       <Link
                         href={item.link}
+                        target="_blank"
                         className="border border-white rounded-2xl px-3 text-sm py-[3px] md:py-1 flex items-center text-white "
                       >
                         <span className="text-xs ">اطلاعات بیشتر</span>

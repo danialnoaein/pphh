@@ -74,7 +74,11 @@ const Nav = () => {
                 </li>
               </ul>
             </div>
-            <a className="text-white hover:text-blue-200 rounded-full border-2 px-4 py-2">
+            <a
+              href="https://app.paadaash.ir"
+              target="_blank"
+              className="text-white hover:text-blue-200 rounded-full border-2 px-4 py-2 cursor-pointer"
+            >
               ورود | ثبت نام
             </a>
           </div>
