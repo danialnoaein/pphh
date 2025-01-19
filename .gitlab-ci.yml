@@ -4,7 +4,7 @@ stages:
 
 variables:
   # Define any global variables here.
-  DOCKER_IMAGE: m1994yazdani/main-padash-client:latest
+  DOCKER_IMAGE: $DOCKER_IMAGE_PREFIX/main-padash-client:latest
 
 # Build Stage
 build:
