@@ -10,6 +10,7 @@ import IntroSection from "./IntroSection";
 import MoveToTopInFooter from "./MoveToTopInFooter";
 import Tabs from "./Tabs";
 import TextSection from "./TextSection";
+import { introSectionsData } from "@/constant/IntroSection.data";
 
 const Home = () => {
   return (
@@ -44,10 +45,13 @@ const Home = () => {
         }
       />
       <div className="px-4 md:px-0">
-        <IntroSection reverseOrder={false} />
+        {introSectionsData.map((sectionData, index) => (
+          <IntroSection key={index} {...sectionData} />
+        ))}
+        {/* <IntroSection reverseOrder={false} />
         <IntroSection reverseOrder={true} />
         <IntroSection reverseOrder={false} />
-        <IntroSection reverseOrder={true} />
+        <IntroSection reverseOrder={true} /> */}
       </div>
 
       <TextSection

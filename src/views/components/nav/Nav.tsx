@@ -1,8 +1,8 @@
 "use client";
 
 import {
-  IconCaretDown,
-  IconCaretUp,
+  IconChevronDown,
+  IconChevronUp,
   IconChevronLeft,
   IconInbox,
   IconMenu2,
@@ -38,8 +38,8 @@ const Nav = () => {
                     href="#"
                     className="text-white hover:text-blue-200 flex align-center justify-center"
                   >
-                    <IconCaretDown />
                     معاملات
+                    <IconChevronDown />
                   </a>
                 </li>
                 <li className="group py-2">
@@ -47,9 +47,9 @@ const Nav = () => {
                     href="#"
                     className="text-white hover:text-blue-200 flex align-center justify-center"
                   >
-                    <IconCaretDown className="group-hover:hidden block" />
-                    <IconCaretUp className="group-hover:block hidden" />
                     لیزینگ
+                    <IconChevronUp className="group-hover:block hidden" />
+                    <IconChevronDown className="group-hover:hidden block" />
                   </a>
                   <div className="group-hover:flex hidden rounded-b-[2.5rem] absolute gap-8 top-[42px] z-[-1] pt-[48px] pb-[24px] right-0 w-full bg-pattern bg-primary-500 items-center justify-center">
                     <a
