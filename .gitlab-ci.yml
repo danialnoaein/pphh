@@ -21,7 +21,7 @@ build:
     - main
   tags:
     - vps-padash
-    - padash-landing  # Ensure these tags match your runner's tags.
+    - padash-landing  # Ensure these tags match your runner's tags..
 
 # Deploy Stage
 deploy:
