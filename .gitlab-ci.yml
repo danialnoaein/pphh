@@ -3,7 +3,7 @@ stages:
   - deploy
 
 variables:
-  # Define any global variables here.
+  # Define any global variables here..
   DOCKER_IMAGE: $DOCKER_IMAGE_PREFIX/main-padash-client:latest
 
 # Build Stage
