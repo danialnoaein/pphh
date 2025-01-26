@@ -48,10 +48,6 @@ const Home = () => {
         {introSectionsData.map((sectionData, index) => (
           <IntroSection key={index} {...sectionData} />
         ))}
-        {/* <IntroSection reverseOrder={false} />
-        <IntroSection reverseOrder={true} />
-        <IntroSection reverseOrder={false} />
-        <IntroSection reverseOrder={true} /> */}
       </div>
 
       <TextSection

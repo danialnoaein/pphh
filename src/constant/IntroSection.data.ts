@@ -3,6 +3,7 @@ export interface IntroSectionData {
   tagText: string;
   title: string;
   description: string;
+  id?: string;
   imageUrl: string;
   bulletPoints: Array<{
     title: string;
@@ -12,6 +13,7 @@ export interface IntroSectionData {
 export const introSectionsData: IntroSectionData[] = [
   {
     reverseOrder: false,
+    id: "section-portfolio",
     tagText: "تحلیل",
     title: "شرکت سبدگردان پاداش",
     description:
@@ -38,6 +40,7 @@ export const introSectionsData: IntroSectionData[] = [
   },
   {
     reverseOrder: true,
+    id: "section-broker", // ← برای اسکرول درون‌صفحه
     tagText: "مشاوره",
     title: "شرکت کارگزاری پاداش",
     description:
@@ -64,6 +67,7 @@ export const introSectionsData: IntroSectionData[] = [
   },
   {
     reverseOrder: false,
+    id: "section-leasing", // ← برای اسکرول درون‌صفحه
     tagText: "قرارداد",
     title: "شرکت لیزینگ پاداش",
     description:
@@ -90,11 +94,42 @@ export const introSectionsData: IntroSectionData[] = [
   },
   {
     reverseOrder: true,
+    id: "section-advisor", // ← برای اسکرول درون‌صفحه
     tagText: "مدیریت دارایی",
     title: "شرکت مشاور سرمایه پاداش",
     description:
       "کارگزاری پاداش از جمله کارگزاری‌هایی است که فرآیند ثبت نام و احراز هویت را به صورت غیرحضوری انجام می‌دهد. افتتاح حساب شما در کارگزاری پاداش کمتر از 5 دقیقه زمان نیاز دارد. شرکت کارگزاری پاداش با مدیریت حرفه ای و بهره گیری از نیروهای متخصص و باتجربه سعی در ارائه خدمات سرمایه گذاری در بازار سرمایه اعم از بورس اوراق بهادار، بورس کالا، انرژی و ابزار مشتقه، را دارد",
     imageUrl: "/images/section-4-moshavere.png",
+    bulletPoints: [
+      {
+        title: "عنوان",
+        text: " توضیحات ویژگی مد نظر هلدینگ پاداش",
+      },
+      {
+        title: "عنوان",
+        text: " توضیحات ویژگی مد نظر هلدینگ پاداش",
+      },
+      {
+        title: "عنوان",
+        text: " توضیحات ویژگی مد نظر هلدینگ پاداش",
+      },
+      {
+        title: "عنوان",
+        text: " توضیحات ویژگی مد نظر هلدینگ پاداش",
+      },
+    ],
+  },
+  // -------------------
+  // سکشن پنجم (صندوق سرمایه گذاری)
+  // -------------------
+  {
+    reverseOrder: false, // اگر می‌خواهید تصویر و متن جایشان برعکس باشد، true بگذارید
+    id: "section-funds", // ← برای اسکرول درون‌صفحه
+    tagText: "صندوق",
+    title: "صندوق های سرمایه گذاری ",
+    description:
+      "کارگزاری پاداش از جمله کارگزاری‌هایی است که فرآیند ثبت نام و احراز هویت را به صورت غیرحضوری انجام می‌دهد. افتتاح حساب شما در کارگزاری پاداش کمتر از 5 دقیقه زمان نیاز دارد. شرکت کارگزاری پاداش با مدیریت حرفه ای و بهره گیری از نیروهای متخصص و باتجربه سعی در ارائه خدمات سرمایه گذاری در بازار سرمایه اعم از بورس اوراق بهادار، بورس کالا، انرژی و ابزار مشتقه، را دارد",
+    imageUrl: "/images/section-1-sabad-gardan.png",
     bulletPoints: [
       {
         title: "عنوان",

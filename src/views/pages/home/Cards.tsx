@@ -1,11 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import ArrowLeft from "../../../../public/arrowLeft";
 
 const PageWrapper = styled.div`
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   width: 100%;
   height: 100%;
@@ -27,7 +26,7 @@ const AnimatedCard = styled.div.withConfig({
 
   @media (min-width: 768px) {
     width: 460px;
-    right: -228px;
+    right: -218px;
     top: ${({ top }) => `-${160 + top * 50}px`};
   }
 
@@ -72,25 +71,30 @@ const Cards = () => {
 
   const cardData = [
     {
-      link: "https://fund.paadaash.ir/",
-      label: "صندوق های پاداش(سبدگردان)",
+      scrollId: "section-portfolio",
+      label: "سبدگردان پاداش",
+      top: 4,
+    },
+    {
+      scrollId: "section-funds",
+      label: "صندوق های پاداش",
       top: 3,
     },
-    { link: "#", label: "مشاور سرمایه گذاری", top: 2 },
-    { link: "#", label: "کارگزاری پاداش", top: 1 },
-    { link: "https://leasing.paadaash.ir/", label: "لیزینگ پاداش", top: 0 },
+    { scrollId: "section-advisor", label: "مشاور سرمایه گذاری", top: 2 },
+    { scrollId: "section-broker", label: "کارگزاری پاداش", top: 1 },
+    { scrollId: "section-leasing", label: "لیزینگ پاداش", top: 0 },
   ];
 
   return (
     <PageWrapper>
-      <div className="relative min-h-[24rem] md:min-h-[34rem]">
+      <div className="relative min-h-[24rem] md:min-h-[35rem]">
         <div className="flex">
-          <div className="flex-1 cards-section-bg-right h-[360px] md:h-[512px]"></div>
-          <div className="flex-1 cards-section-bg-left h-[360px] md:h-[512px]"></div>
+          <div className="flex-1 cards-section-bg-right h-[360px] md:h-[562px]"></div>
+          <div className="flex-1 cards-section-bg-left h-[360px] md:h-[562px]"></div>
         </div>
 
-        <div className="container mx-auto justify-center flex mt-[-7rem] md:mt-[-10rem] md:scale-110">
-          <div className="w-[310px] md:w-[500px] text-center justify-center items-center flex flex-col relative ">
+        <div className="container z-[999] mx-auto justify-center flex mt-[-5rem] md:mt-[-11rem] md:scale-110">
+          <div className="w-[310px] md:w-[440px] text-center justify-center items-center flex flex-col relative ">
             <div className="absolute">
               <Image
                 src={"/images/cards-pocket-bg.png"}
@@ -112,36 +116,39 @@ const Cards = () => {
                     setActiveCard(index);
                   }}
                   onMouseLeave={() => setHoveredCard(null)}
-                  className="group mt-4 cursor-pointer"
+                  onClick={() => {
+                    document
+                      .getElementById(item.scrollId!)
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="group mt-4 md:mt-7 cursor-pointer"
                 >
                   <Image
                     src={"/images/pocket-card-bg.png"}
                     alt={"section"}
-                    width={520}
-                    height={420}
+                    width={440}
+                    height={400}
                   />
                   <div className="absolute top-4 right-4 text-white text-lg font-bold">
                     <span className="text-xs">{item.label}</span>
                   </div>
                   {activeCard === index && (
-                    <div className="absolute top-4 left-4 flex items-center space-x-2 ">
-                      <Link
-                        href={item.link}
-                        target="_blank"
-                        className="border border-white rounded-2xl px-3 text-sm py-[3px] md:py-1 flex items-center text-white "
-                      >
-                        <span className="text-xs ">اطلاعات بیشتر</span>
-                        <div className="mr-1 ml-[-4px]">
+                    <div className="absolute top-4 left-4 md:left-10 flex items-center space-x-2 ">
+                      <div className="border border-white rounded-2xl px-3 md:px-4 text-sm py-[2px] md:py-1 flex items-center text-white ">
+                        <span className="text-[11px] md:text-xs ">
+                          اطلاعات بیشتر
+                        </span>
+                        <div className="mr-1 ml-[-8px]">
                           <ArrowLeft />
                         </div>
-                      </Link>
+                      </div>
                     </div>
                   )}
                 </AnimatedCard>
               ))}
             </div>
 
-            <div className="absolute md:w-[520px] bottom-[-104px] md:bottom-[-178px] m-[-10px] md:m-[8px]">
+            <div className="absolute md:w-[458px] bottom-[-104px] md:bottom-[-155px] m-[-10px] md:m-[8px]">
               <Image
                 src={"/images/cards-pocket.png"}
                 alt={"section"}
