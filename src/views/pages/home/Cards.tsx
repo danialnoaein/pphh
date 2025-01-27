@@ -26,7 +26,7 @@ const AnimatedCard = styled.div.withConfig({
 
   @media (min-width: 768px) {
     width: 460px;
-    right: -218px;
+    right: -208px;
     top: ${({ top }) => `-${160 + top * 50}px`};
   }
 
@@ -126,14 +126,14 @@ const Cards = () => {
                   <Image
                     src={"/images/pocket-card-bg.png"}
                     alt={"section"}
-                    width={440}
+                    width={420}
                     height={400}
                   />
                   <div className="absolute top-4 right-4 text-white text-lg font-bold">
                     <span className="text-xs">{item.label}</span>
                   </div>
                   {activeCard === index && (
-                    <div className="absolute top-4 left-4 md:left-10 flex items-center space-x-2 ">
+                    <div className="absolute top-4 left-4 md:left-14 flex items-center space-x-2 ">
                       <div className="border border-white rounded-2xl px-3 md:px-4 text-sm py-[2px] md:py-1 flex items-center text-white ">
                         <span className="text-[11px] md:text-xs ">
                           اطلاعات بیشتر
