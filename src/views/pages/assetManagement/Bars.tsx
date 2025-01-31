@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import ReactApexChart from "react-apexcharts";
 
 const PageWrapper = styled.div`
   overflow: visible;
@@ -10,17 +11,21 @@ const PageWrapper = styled.div`
 `;
 
 const AnimatedCard = styled.div.withConfig({
-  shouldForwardProp: (prop) => !["top", "ishovered", "isactive"].includes(prop),
+  shouldForwardProp: (prop) =>
+    !["top", "ishovered", "isactive", "isbarshovered"].includes(prop),
 })<{
   top: number;
   ishovered: boolean;
   isactive: boolean;
+  isbarshovered: boolean;
 }>`
   width: 64px;
   height: 200px;
   top: ${({ top }) => `-${top}px`};
   transition: all 1s ease;
-  animation: move-up-down 1.75s ease-in-out;
+  animation: ${({ isbarshovered }) =>
+    isbarshovered ? "none" : "move-up-down 1.75s ease-in-out"};
+  opacity: ${({ isbarshovered }) => (isbarshovered ? "0.5" : "1")};
   position: relative;
   @media (min-width: 768px) {
     width: 64px;
@@ -28,14 +33,24 @@ const AnimatedCard = styled.div.withConfig({
   }
 `;
 
+const cardData = [
+  { link: "#", label: "خودرو" },
+  { link: "#", label: "وبملت" },
+  { link: "#", label: "رمپنا" },
+  { link: "#", label: "چافست" },
+  { link: "#", label: "شستا" },
+  { link: "#", label: "فولاد" },
+];
+
 const Bars = () => {
   const [activeCard, setActiveCard] = useState<number>(0);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [isBarsHovered, setIsBarsHovered] = useState<boolean>(false);
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
 
-    if (hoveredCard === null) {
+    if (!isBarsHovered && hoveredCard === null) {
       interval = setInterval(() => {
         setActiveCard((prev) => {
           let nextCard;
@@ -50,16 +65,7 @@ const Bars = () => {
     return () => {
       clearInterval(interval);
     };
-  }, [hoveredCard]);
-
-  const cardData = [
-    { link: "#", label: "خودرو" },
-    { link: "#", label: "وبملت" },
-    { link: "#", label: "رمپنا" },
-    { link: "#", label: "چافست" },
-    { link: "#", label: "شستا" },
-    { link: "#", label: "فولاد" },
-  ];
+  }, [hoveredCard, isBarsHovered]);
 
   return (
     <PageWrapper>
@@ -70,7 +76,11 @@ const Bars = () => {
         </div>
 
         <div className='container mx-auto justify-center flex mt-[-7rem] md:mt-[-16rem] md:scale-110'>
-          <div className='w-[310px] md:w-[500px] text-center justify-center items-center flex flex-col relative '>
+          <div
+            className='w-[310px] md:w-[500px] text-center justify-center items-center flex flex-col relative'
+            onMouseEnter={() => setIsBarsHovered(true)}
+            onMouseLeave={() => setIsBarsHovered(false)}
+          >
             <div className='absolute'>
               <Image
                 src={"/images/cards-pocket-bg.png"}
@@ -80,13 +90,22 @@ const Bars = () => {
               />
             </div>
 
-            <div className='flex relative gap-4 top-[-9rem]'>
+            {/* Bars Wrapper */}
+            <div
+              className='flex relative gap-4 top-[-9rem]'
+              id='bars'
+            >
+              {/* Overlay Div */}
+
+              {isBarsHovered && <SmoothLineChart />}
+
               {cardData.map((item, index) => (
                 <AnimatedCard
                   key={index}
                   top={parseInt(`${Math.random() * 100}`)}
                   isactive={activeCard === index}
                   ishovered={hoveredCard === index}
+                  isbarshovered={isBarsHovered}
                   onMouseEnter={() => {
                     setHoveredCard(index);
                     setActiveCard(index);
@@ -94,10 +113,13 @@ const Bars = () => {
                   onMouseLeave={() => setHoveredCard(null)}
                   className='group mt-4'
                 >
-                  <div className='relative text-white text-lg font-bold flex flex-col items-center'>
-                    <span className=' text-primary-500'>{item.label}</span>
-                    <div className='w-3 h-3 bg-primary-500 rounded-full'></div>
-                  </div>
+                  {/* Hide Label When Bars Hovered */}
+                  {!isBarsHovered && (
+                    <div className='relative text-white text-lg font-bold flex flex-col items-center'>
+                      <span className='text-primary-500'>{item.label}</span>
+                      <div className='w-3 h-3 bg-primary-500 rounded-full'></div>
+                    </div>
+                  )}
                   <Image
                     src={"/images/stock-bar-bg.png"}
                     alt={"section"}
@@ -108,7 +130,7 @@ const Bars = () => {
               ))}
             </div>
 
-            <div className='absolute md:w-[520px] bottom-[-104px] md:bottom-[-72px] m-[-10px] md:m-[8px]'>
+            <div className='absolute md:w-[520px] bottom-[-104px] md:bottom-[-72px] m-[-10px] md:m-[8px] z-10'>
               <Image
                 src={"/images/cards-pocket.png"}
                 alt={"section"}
@@ -124,3 +146,94 @@ const Bars = () => {
 };
 
 export default Bars;
+
+const SmoothLineChart = () => {
+  const options = {
+    chart: {
+      type: "area",
+      toolbar: {
+        show: false,
+      },
+      zoom: {
+        enabled: false,
+      },
+      area: {
+        fillTo: "end",
+      },
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    colors: ["#01438F"],
+    fill: {
+      type: "gradient",
+      gradient: {
+        shadeIntensity: 1,
+        opacityFrom: 0.6,
+        opacityTo: 0,
+        stops: [0, 100],
+        colorStops: [
+          { offset: 50, color: "#FFFFFF", opacity: 0.75 }, // Start with coral color
+          { offset: 100, color: "#01438F", opacity: 0.75 }, // End with lime green
+        ],
+      },
+    },
+    grid: {
+      show: false,
+    },
+    xaxis: {
+      dataLabels: {
+        enabled: false,
+      },
+      categories: [],
+      labels: {
+        show: false,
+      },
+      axisBorder: {
+        show: false,
+      },
+      axisTicks: {
+        show: false,
+      },
+      tooltip: {
+        show: false,
+      },
+    },
+    yaxis: {
+      min: 0,
+      max: 32,
+      dataLabels: {
+        enabled: false,
+      },
+      labels: {
+        show: false,
+      },
+      axisBorder: {
+        show: false,
+      },
+      axisTicks: {
+        show: false,
+      },
+      tooltip: {
+        show: false,
+      },
+    },
+  };
+  const series = [
+    {
+      name: "series-1",
+      data: [8, 16, 10, 24, 16, 32, 24],
+    },
+  ];
+
+  return (
+    <div className='w-[500px] h-[280px] absolute z-10 top-[-4rem] mx-[-12px]'>
+      <ReactApexChart
+        options={options}
+        series={series}
+        type='area'
+        height='100%'
+      />
+    </div>
+  );
+};
