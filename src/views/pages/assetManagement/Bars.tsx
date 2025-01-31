@@ -181,6 +181,9 @@ const SmoothLineChart = () => {
     grid: {
       show: false,
     },
+    tooltip: {
+      enabled: false,
+    },
     xaxis: {
       dataLabels: {
         enabled: false,
@@ -226,6 +229,14 @@ const SmoothLineChart = () => {
     },
   ];
 
+  const [showTooltip, setShowTooltip] = useState(false); // State to control tooltip visibility
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowTooltip(true); // Show tooltip after 1 second
+    }, 1000);
+  }, []);
+
   return (
     <div className='w-[500px] h-[280px] absolute z-10 top-[-4rem] mx-[-12px]'>
       <ReactApexChart
@@ -234,6 +245,18 @@ const SmoothLineChart = () => {
         type='area'
         height='100%'
       />
+      {showTooltip && (
+        <div
+          className={`absolute top-[38px] left-[6px] w-full flex justify-center items-center flex-col ${
+            showTooltip ? "opacity-100" : "opacity-25"
+          }`}
+        >
+          <div className='bg-[#01438F] text-xs text-white py-2 px-4 mb-2 rounded-full'>
+            سبدگردانی پاداش
+          </div>
+          <div className='rounded-full w-5 h-5 bg-[#01438F] border-[2px] border-white'></div>
+        </div>
+      )}
     </div>
   );
 };
