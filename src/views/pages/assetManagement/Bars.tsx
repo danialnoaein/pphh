@@ -27,8 +27,8 @@ const AnimatedCard = styled.div.withConfig({
     isbarshovered ? "none" : "move-up-down 1.75s ease-in-out"};
   opacity: ${({ isbarshovered }) => (isbarshovered ? "0.5" : "1")};
   position: relative;
-  @media (min-width: 768px) {
-    width: 64px;
+  @media (max-width: 768px) {
+    width: 36px;
     top: ${({ top }) => `-${top}px`};
   }
 `;
@@ -75,7 +75,7 @@ const Bars = () => {
           <div className='flex-1 cards-section-bg-left h-[360px] md:h-[512px]'></div>
         </div>
 
-        <div className='container mx-auto justify-center flex mt-[-7rem] md:mt-[-16rem] md:scale-110'>
+        <div className='container mx-auto justify-center flex mt-[-15rem] md:mt-[-16rem] md:scale-110'>
           <div
             className='w-[310px] md:w-[500px] text-center justify-center items-center flex flex-col relative'
             onMouseEnter={() => setIsBarsHovered(true)}
@@ -92,7 +92,7 @@ const Bars = () => {
 
             {/* Bars Wrapper */}
             <div
-              className='flex relative gap-4 top-[-9rem]'
+              className='flex relative gap-2 md:gap-4 top-[-2rem] md:top-[-9rem]'
               id='bars'
             >
               {/* Overlay Div */}
@@ -116,8 +116,10 @@ const Bars = () => {
                   {/* Hide Label When Bars Hovered */}
                   {!isBarsHovered && (
                     <div className='relative text-white text-lg font-bold flex flex-col items-center'>
-                      <span className='text-primary-500'>{item.label}</span>
-                      <div className='w-3 h-3 bg-primary-500 rounded-full'></div>
+                      <span className='text-primary-500 text-sm md:text-xl'>
+                        {item.label}
+                      </span>
+                      <div className='w-1 md:w-3 h-1 md:h-3 bg-primary-500 rounded-full'></div>
                     </div>
                   )}
                   <Image
@@ -130,7 +132,7 @@ const Bars = () => {
               ))}
             </div>
 
-            <div className='absolute md:w-[520px] bottom-[-104px] md:bottom-[-72px] m-[-10px] md:m-[8px] z-10'>
+            <div className='absolute md:w-[520px] bottom-[0px] md:bottom-[-72px] m-[-10px] md:m-[8px] z-10'>
               <Image
                 src={"/images/cards-pocket.png"}
                 alt={"section"}
@@ -238,7 +240,7 @@ const SmoothLineChart = () => {
   }, []);
 
   return (
-    <div className='w-[500px] h-[280px] absolute z-10 top-[-4rem] mx-[-12px]'>
+    <div className='w-[300px] md:w-[500px] h-[200px] md:h-[280px] absolute z-10 top-[-4rem] mx-[-12px]'>
       <ReactApexChart
         options={options}
         series={series}
@@ -247,7 +249,7 @@ const SmoothLineChart = () => {
       />
       {showTooltip && (
         <div
-          className={`absolute top-[38px] left-[6px] w-full flex justify-center items-center flex-col ${
+          className={`absolute top-[22px] md:top-[38px] left-[6px] w-full flex justify-center items-center flex-col ${
             showTooltip ? "opacity-100" : "opacity-25"
           }`}
         >

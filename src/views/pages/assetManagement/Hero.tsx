@@ -2,7 +2,7 @@
 
 const Hero = () => {
   return (
-    <div className='pt-16 pb-8  container mx-auto text-section text-center bg-center'>
+    <div className='pt-10 md:pt-12 pb-10 container mx-auto text-section text-center bg-center'>
       <br />
       <br />
       <br />
